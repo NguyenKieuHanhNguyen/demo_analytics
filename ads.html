@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Báo cáo - Google Analytics</title>
+    <title>Quảng cáo - Google Analytics</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -264,72 +264,100 @@
     </header>
 
     <!-- ================= BỐ CỤC PHẦN THÂN ================= -->
-    <div class="flex-1 flex overflow-hidden">
-
-        <!-- 1. CỘT ICON NHỎ NGOÀI CÙNG (SIDEBAR 1)  -->
+    <div class="flex-1 flex">
+        <!-- 2. SIDEBAR (NẰM DƯỚI HEADER, BÊN TRÁI) -->
         <aside
-            class="w-14 bg-white border-r border-zinc-200 flex flex-col justify-between py-3 items-center flex-shrink-0 z-20">
-            <!-- Cụm trên -->
-            <div class="flex flex-col gap-2 w-full px-2">
-                <!-- Trang chủ -->
+            class="group h-full w-16 hover:w-56 bg-white border-r border-zinc-200 flex flex-col justify-between py-3 transition-all duration-300 ease-in-out z-20 flex-shrink-0 shadow-none hover:shadow-xl overflow-hidden">
+
+            <!-- Cụm Icon trên -->
+            <div class="flex flex-col gap-1 w-full pr-2">
+                <!-- 1. Trang chủ -->
                 <a href="index.html"
-                    class="w-10 h-10 rounded-full flex items-center justify-center text-zinc-600 hover:bg-zinc-100 transition"
-                    title="Trang chủ">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                    </svg>
+                    class="flex items-center gap-3 px-3.5 py-2.5 bg-blue-600 hover:text-white hover:bg-blue-600 text-white rounded-r-full font-medium text-xs shadow-sm">
+                    <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                        </svg>
+                    </div>
+                    <span
+                        class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Home</span>
                 </a>
-                <!-- Báo cáo (Đang Active: nền tròn xanh chữ trắng) -->
+
+                <!-- 2. Báo cáo -->
                 <a href="report.html"
-                    class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-sm"
-                    title="Báo cáo">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M3 13h4v8H3v-8zm6-5h4v13H9V8zm6-6h4v19h-4V2z" />
-                    </svg>
+                    class="flex items-center gap-3 px-3.5 py-2.5 text-zinc-600 hover:text-white hover:bg-blue-600 rounded-r-full font-medium text-xs transition duration-150">
+                    <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 13h4v8H3v-8zm6-5h4v13H9V8zm6-6h4v19h-4V2z" />
+                        </svg>
+                    </div>
+                    <span
+                        class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Report</span>
                 </a>
-                <!-- Khám phá -->
+
+                <!-- 3. Khám phá -->
                 <a href="discover.html"
-                    class="w-10 h-10 rounded-full flex items-center justify-center text-zinc-600 hover:bg-zinc-100 transition"
-                    title="Khám phá">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.949 8.949 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                    </svg>
+                    class="flex items-center gap-3 px-3.5 py-2.5 text-zinc-600 hover:text-white hover:bg-blue-600 rounded-r-full font-medium text-xs transition duration-150">
+                    <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.949 8.949 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                    </div>
+                    <span
+                        class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Discover</span>
                 </a>
-                <!-- Quảng cáo -->
+
+                <!-- 4. Quảng cáo -->
                 <a href="ads.html"
-                    class="w-10 h-10 rounded-full flex items-center justify-center text-zinc-600 hover:bg-zinc-100 transition"
-                    title="Quảng cáo">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
-                    </svg>
+                    class="flex items-center gap-3 px-3.5 py-2.5 text-zinc-600 hover:text-white hover:bg-blue-600 rounded-r-full font-medium text-xs transition duration-150">
+                    <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
+                        </svg>
+                    </div>
+                    <span
+                        class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Advertisements</span>
                 </a>
             </div>
 
-            <!-- Cụm dưới -->
-            <div class="flex flex-col gap-2 w-full px-2 border-t border-zinc-100 pt-2 items-center">
+            <!-- Cụm Icon dưới -->
+            <div class="flex flex-col gap-1 w-full border-t border-zinc-100 pt-2 pr-2">
+                <!-- Công việc -->
                 <a href="#"
-                    class="w-10 h-10 rounded-full flex items-center justify-center text-zinc-600 hover:bg-zinc-100 transition"
-                    title="Công việc">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
+                    class="flex items-center justify-between px-3.5 py-2 text-zinc-600 hover:text-white hover:bg-blue-600 rounded-r-full font-medium text-xs transition duration-150">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                        </div>
+                        <span
+                            class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Job
+                        </span>
+                    </div>
+                    <span
+                        class="w-5 h-5 rounded-full bg-zinc-600 text-white text-[10px] font-bold flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 mr-2">9</span>
                 </a>
+
+                <!-- Quản trị -->
                 <a href="#"
-                    class="w-10 h-10 rounded-full flex items-center justify-center text-zinc-600 hover:bg-zinc-100 transition"
-                    title="Quản trị">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
+                    class="flex items-center gap-3 px-3.5 py-2 text-zinc-600 hover:text-white hover:bg-blue-600 rounded-r-full font-medium text-xs transition duration-150">
+                    <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <span
+                        class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Administration</span>
                 </a>
             </div>
         </aside>
-
-        <!-- 2. SIDEBAR THỨ HAI: MENU CÂY BÁO CÁO (SUB-SIDEBAR) -->
+        <!-- 1. CỘT ICON NHỎ NGOÀI CÙNG (SIDEBAR 1)  -->
         <aside id="subSidebar"
             class="w-64 bg-white border-r border-zinc-200 flex flex-col justify-between text-xs flex-shrink-0 select-none">
 
@@ -496,15 +524,6 @@
 
             <!-- Đáy Sub-Sidebar: Thư viện & Nút thu gọn mũi tên < -->
             <div class="p-2 border-t border-zinc-200 flex items-center justify-between">
-                <a href="#"
-                    class="flex items-center gap-2 px-2 py-1.5 text-zinc-700 hover:bg-zinc-100 rounded transition font-medium">
-                    <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
-                    </svg>
-                    <span>Thư viện</span>
-                </a>
                 <!-- NÚT MŨI TÊN THU / MỞ SIDEBAR NẰM Ở ĐÁY MÉP PHẢI -->
                 <div class="relative px-3 py-2 border-t border-zinc-200 flex items-center justify-end h-12">
                     <button id="toggleSidebarBtn"
@@ -523,145 +542,156 @@
 
         <!-- 3. VÙNG NỘI DUNG CHÍNH (MAIN CONTENT) -->
         <div class="flex-1 flex flex-col min-w-0 overflow-hidden bg-[#f8f9fa]">
-            <main class="flex-1 overflow-y-auto p-6 space-y-6">
+            <main class="flex-1 overflow-y-auto bg-[#f8f9fa] p-6 lg:p-10">
 
-                <!-- BANNER XANH NHẠT TRANG BÁO CÁO -->
-                <section
-                    class="bg-[#e8f0fe] border border-blue-100 rounded-lg p-6 lg:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
-                    <div class="max-w-xl space-y-3">
-                        <h1 class="text-2xl font-bold text-zinc-900 leading-snug">
-                            Tổng quan nhanh về báo<br />cáo
-                        </h1>
-                        <p class="text-xs text-zinc-600 leading-relaxed">
-                            Báo cáo tổng quan nhanh giúp bạn theo dõi các chỉ số hiệu suất mà bạn chọn. Để bắt đầu, hãy
-                            chọn một trong các mẫu này.
-                        </p>
-                    </div>
+                <!-- ================= CARD LỚN TRẮNG CHÍNH GIỮA ================= -->
+                <div class="bg-white border border-zinc-200 rounded-xl p-8 lg:p-12 shadow-sm max-w-6xl mx-auto">
+                    <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
 
-                    <!-- Minh họa banner -->
-                    <div class="hidden md:flex items-center justify-center flex-shrink-0">
-                        <svg class="w-64 h-36" viewBox="0 0 260 140" fill="none">
-                            <rect x="70" y="20" width="130" height="70" rx="3" fill="white" stroke="#3c4043"
-                                stroke-width="1.2" />
-                            <line x1="70" y1="32" x2="200" y2="32" stroke="#dadce0" stroke-width="1" />
-                            <circle cx="76" cy="26" r="1.5" fill="#5f6368" />
-                            <circle cx="81" cy="26" r="1.5" fill="#5f6368" />
-                            <rect x="80" y="42" width="20" height="35" fill="#d2e3fc" stroke="#1a73e8"
-                                stroke-width="1" />
-                            <rect x="105" y="42" width="30" height="28" fill="white" stroke="#dadce0"
-                                stroke-width="1" />
-                            <!-- Người đứng tương tác -->
-                            <circle cx="180" cy="40" r="7" fill="#3c4043" />
-                            <path d="M172 50 L188 50 L185 85 L175 85 Z" fill="white" stroke="#3c4043"
-                                stroke-width="1.2" />
-                            <line x1="176" y1="85" x2="173" y2="120" stroke="#3c4043" stroke-width="1.5" />
-                            <line x1="184" y1="85" x2="188" y2="120" stroke="#3c4043" stroke-width="1.5" />
-                        </svg>
-                    </div>
-                </section>
+                        <!-- CỘT BÊN TRÁI: NỘI DUNG VÀ HÀNH ĐỘNG -->
+                        <div class="w-full lg:max-w-xl space-y-6">
 
-                <!-- KHU VỰC TẠO BÁO CÁO TỔNG QUAN NHANH (3 CARDS) -->
-                <section class="bg-white rounded-lg border border-zinc-200 shadow-sm p-6">
-                    <div class="text-center max-w-md mx-auto mb-8">
-                        <h2 class="text-base font-semibold text-zinc-900">Tạo báo cáo tổng quan nhanh</h2>
-                        <p class="text-xs text-zinc-500 mt-1">Chọn một mẫu cho thấy các chỉ số hiệu suất mà bạn muốn xem
-                        </p>
-                    </div>
-
-                    <!-- Lưới 3 Cards chọn mẫu -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-                        <!-- Card 1: Hành vi của người dùng -->
-                        <div
-                            class="border border-zinc-200 rounded-lg p-5 flex flex-col justify-between hover:shadow-md transition">
-                            <div>
-                                <h3 class="text-sm font-semibold text-zinc-900 mb-1.5">Hành vi của người dùng</h3>
-                                <p class="text-xs text-zinc-600 leading-relaxed mb-6">
-                                    Xem nhanh thông tin tổng quan về các màn hình hàng đầu, số lượng người dùng và chỉ
-                                    số tương tác của trang web và ứng dụng của bạn
+                            <!-- Cụm tiêu đề và mô tả đầu trang -->
+                            <div class="space-y-3">
+                                <h1 class="text-2xl font-normal text-zinc-900 tracking-tight">
+                                    Bắt đầu quảng cáo
+                                </h1>
+                                <p class="text-xs text-zinc-600 leading-relaxed">
+                                    Hiểu rõ hơn về các hành trình quan trọng của người dùng và hiệu suất quảng cáo của
+                                    bạn bằng cách liên kết tài sản này với một sản phẩm quảng cáo của Google.
                                 </p>
-                                <!-- Hình minh họa Card 1 -->
-                                <div class="h-28 flex items-center justify-center mb-4">
-                                    <svg class="w-32 h-24" viewBox="0 0 120 90" fill="none">
-                                        <rect x="15" y="15" width="65" height="45" rx="2" fill="white" stroke="#3c4043"
-                                            stroke-width="1.2" />
-                                        <circle cx="22" cy="22" r="1.5" fill="#5f6368" />
-                                        <circle cx="27" cy="22" r="1.5" fill="#5f6368" />
-                                        <line x1="35" y1="60" x2="60" y2="60" stroke="#3c4043" stroke-width="1.2" />
-                                        <rect x="68" y="32" width="22" height="38" rx="3" fill="#e6f4ea"
-                                            stroke="#1e8e3e" stroke-width="1.2" />
-                                        <circle cx="79" cy="65" r="1.5" fill="#1e8e3e" />
-                                    </svg>
-                                </div>
+                                <p class="text-xs text-zinc-600 leading-relaxed">
+                                    Mục này chứa các báo cáo chi tiết về kênh và chiến dịch quảng cáo, mức chi tiêu cho
+                                    hoạt động truyền thông và cách phân bổ ngân sách. Bạn có thể chọn cách phân bổ giá
+                                    trị đóng góp cho quảng cáo, lượt nhấp và các lượt tương tác khác.
+                                    <a href="#" class="text-[#1a73e8] hover:underline">Tìm hiểu thêm về mục Quảng
+                                        cáo</a>
+                                </p>
                             </div>
-                            <button
-                                class="w-full py-2 bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium rounded transition">
-                                Chọn mẫu này
-                            </button>
+
+                            <!-- Cụm Tabs điều hướng gạch chân -->
+                            <div class="border-b border-zinc-200 flex gap-8 text-xs font-medium pt-2">
+                                <!-- Tab Active: Chữ xanh và có thanh gạch chân màu xanh đậm -->
+                                <button class="pb-3 text-[#1a73e8] border-b-2 border-[#1a73e8] cursor-pointer">
+                                    Bắt đầu sử dụng báo cáo quảng cáo
+                                </button>
+                                <!-- Tab Inactive: Chữ xám mờ -->
+                                <button class="pb-3 text-zinc-600 hover:text-zinc-900 transition cursor-pointer">
+                                    Bắt đầu sử dụng báo cáo về quảng cáo của nhà xuất bản
+                                </button>
+                            </div>
+
+                            <!-- Hướng dẫn phụ bên dưới Tab -->
+                            <p class="text-xs text-zinc-600 leading-relaxed">
+                                Để xem các lộ trình chuyển đổi hàng đầu, hiệu suất kênh và so sánh các mô hình phân bổ,
+                                hãy liên kết với một sản phẩm quảng cáo của Google.
+                            </p>
+
+                            <!-- Hộp Dropdown chọn sản phẩm (Google Ads) -->
+                            <div class="relative w-full max-w-md">
+                                <button type="button"
+                                    class="w-full bg-white border border-zinc-300 hover:border-zinc-400 rounded-lg px-4 py-3 flex items-center justify-between shadow-sm transition">
+                                    <!-- Logo Google Ads + Tên -->
+                                    <div class="flex items-center gap-3">
+                                        <!-- SVG Logo Google Ads 3 dải màu -->
+                                        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+                                            <path
+                                                d="M3.75 14.5a4.25 4.25 0 0 0 7.69 2.47l4.06-7.03A8.47 8.47 0 0 0 3.75 14.5z"
+                                                fill="#fbbc04" />
+                                            <path
+                                                d="M20.25 14.5c0-4.68-3.8-8.47-8.48-8.47-1.4 0-2.7.35-3.86.97l8.48 14.69c2.37-1.37 3.86-3.9 3.86-7.19z"
+                                                fill="#4285f4" />
+                                            <circle cx="8" cy="14.5" r="4.25" fill="#34a853" />
+                                        </svg>
+                                        <span class="text-xs font-medium text-zinc-800">Google Ads</span>
+                                    </div>
+                                    <!-- Mũi tên Dropdown -->
+                                    <svg class="w-4 h-4 text-zinc-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Nút hành động chính: Bắt đầu -->
+                            <div class="pt-2">
+                                <button
+                                    class="bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium px-5 py-2.5 rounded shadow-sm transition duration-150 cursor-pointer">
+                                    Bắt đầu
+                                </button>
+                            </div>
+
                         </div>
 
-                        <!-- Card 2: Doanh số và doanh thu -->
-                        <div
-                            class="border border-zinc-200 rounded-lg p-5 flex flex-col justify-between hover:shadow-md transition">
-                            <div>
-                                <h3 class="text-sm font-semibold text-zinc-900 mb-1.5">Doanh số và doanh thu</h3>
-                                <p class="text-xs text-zinc-600 leading-relaxed mb-6">
-                                    Xác định những sản phẩm có hiệu suất cao nhất và những yếu tố mang lại doanh thu
-                                    nhiều nhất
-                                </p>
-                                <!-- Hình minh họa Card 2 -->
-                                <div class="h-28 flex items-center justify-center mb-4">
-                                    <svg class="w-32 h-24" viewBox="0 0 120 90" fill="none">
-                                        <rect x="25" y="15" width="55" height="40" rx="2" fill="white" stroke="#3c4043"
-                                            stroke-width="1.2" />
-                                        <circle cx="33" cy="28" r="3" stroke="#1a73e8" stroke-width="1" />
-                                        <line x1="35" y1="30" x2="38" y2="33" stroke="#1a73e8" stroke-width="1.5" />
-                                        <circle cx="48" cy="40" r="5" fill="#f9ab00" />
-                                        <path d="M52 50 L68 50 L63 65 L48 65 Z" fill="#e8f0fe" stroke="#3c4043"
-                                            stroke-width="1.2" />
-                                        <circle cx="53" cy="68" r="2" fill="#3c4043" />
-                                        <circle cx="61" cy="68" r="2" fill="#3c4043" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <button
-                                class="w-full py-2 bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium rounded transition">
-                                Chọn mẫu này
-                            </button>
-                        </div>
+                        <!-- CỘT BÊN PHẢI: HÌNH MINH HỌA GOOGLE (SVG) -->
+                        <div class="w-full lg:w-auto flex justify-center items-center flex-shrink-0">
+                            <svg class="w-80 sm:w-96 lg:w-[420px] h-auto text-zinc-800" viewBox="0 0 450 320"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Bàn và các đường gióng ngang đáy -->
+                                <line x1="20" y1="290" x2="430" y2="290" stroke="#dadce0" stroke-width="1.5" />
 
-                        <!-- Card 3: Hiệu suất tiếp thị -->
-                        <div
-                            class="border border-zinc-200 rounded-lg p-5 flex flex-col justify-between hover:shadow-md transition">
-                            <div>
-                                <h3 class="text-sm font-semibold text-zinc-900 mb-1.5">Hiệu suất tiếp thị</h3>
-                                <p class="text-xs text-zinc-600 leading-relaxed mb-6">
-                                    Đo lường hiệu suất của kênh tiếp thị và phân bổ lượt chuyển đổi
-                                </p>
-                                <!-- Hình minh họa Card 3 -->
-                                <div class="h-28 flex items-center justify-center mb-4">
-                                    <svg class="w-32 h-24" viewBox="0 0 120 90" fill="none">
-                                        <rect x="25" y="20" width="18" height="12" rx="1" fill="#fce8e6"
-                                            stroke="#d93025" stroke-width="1" />
-                                        <text x="28" y="29" fill="#d93025" font-size="7" font-weight="bold">Ad</text>
-                                        <rect x="42" y="15" width="40" height="35" rx="2" fill="#e8f0fe"
-                                            stroke="#1a73e8" stroke-width="1.2" />
-                                        <circle cx="50" cy="24" r="2.5" fill="#1a73e8" />
-                                        <polygon points="45,42 55,32 65,42" fill="#1a73e8" />
-                                        <!-- Trỏ chuột click -->
-                                        <path d="M60 40 L60 55 L65 50 L70 57 L72 55 L67 48 L73 48 Z" fill="white"
-                                            stroke="#3c4043" stroke-width="1.2" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <button
-                                class="w-full py-2 bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium rounded transition">
-                                Chọn mẫu này
-                            </button>
+                                <!-- Khối hình chữ nhật bảng dữ liệu bên trái có nút play -->
+                                <rect x="25" y="180" width="70" height="90" rx="3" stroke="#5f6368" stroke-width="1.5"
+                                    fill="white" />
+                                <line x1="25" y1="195" x2="95" y2="195" stroke="#dadce0" stroke-width="1" />
+                                <circle cx="35" cy="188" r="2" fill="#5f6368" />
+                                <circle cx="42" cy="188" r="2" fill="#5f6368" />
+                                <rect x="35" y="205" width="30" height="35" fill="#fbbc04" rx="2" />
+
+                                <!-- Nút Play tròn phía dưới bên trái -->
+                                <circle cx="65" cy="285" r="12" stroke="#ea4335" stroke-width="1.5" fill="white" />
+                                <polygon points="62,280 71,285 62,290" fill="#ea4335" />
+
+                                <!-- Nhân vật 1: Ngồi bên trái áo xanh dương nhạt -->
+                                <circle cx="45" cy="225" r="10" fill="#795548" />
+                                <path d="M38 235 C38 245, 52 245, 52 235 Z" fill="#4285f4" />
+                                <path d="M30 245 Q50 250 55 285 L35 285 Z" fill="#d2e3fc" stroke="#5f6368"
+                                    stroke-width="1.2" />
+
+                                <!-- Khối tròn lớn màu xanh lá cây ở giữa -->
+                                <circle cx="215" cy="140" r="42" fill="#34a853" />
+
+                                <!-- Nhân vật 2: Người đứng giữa ôm khối tròn (Áo trắng, quần xanh) -->
+                                <circle cx="185" cy="120" r="10" fill="#3c4043" />
+                                <path d="M182 135 L195 135 L192 180 L180 180 Z" fill="white" stroke="#5f6368"
+                                    stroke-width="1.2" />
+                                <!-- Đôi chân đang bước -->
+                                <path d="M180 180 L175 270" stroke="#5f6368" stroke-width="1.8" />
+                                <path d="M192 180 L210 260" stroke="#5f6368" stroke-width="1.8" />
+                                <polygon points="175,180 192,180 205,250 165,250" fill="#d2e3fc" />
+
+                                <!-- Nhân vật 3: Người ngồi bên phải chỉ bảng biểu đồ -->
+                                <!-- Bảng vẽ biểu đồ trên giá -->
+                                <rect x="290" y="145" width="90" height="65" rx="3" stroke="#5f6368" stroke-width="1.5"
+                                    fill="white" />
+                                <polyline points="305,190 325,160 345,175 365,155" fill="none" stroke="#4285f4"
+                                    stroke-width="2" />
+                                <circle cx="305" cy="190" r="3" fill="#4285f4" />
+                                <circle cx="325" cy="160" r="3" fill="#4285f4" />
+                                <circle cx="345" cy="175" r="3" fill="#4285f4" />
+                                <circle cx="365" cy="155" r="3" fill="#4285f4" />
+
+                                <!-- Người áo sơ mi trắng, quần xanh ngồi ghế -->
+                                <circle cx="370" cy="140" r="9" fill="#e8710a" />
+                                <path d="M350 165 L380 165 L375 220 L355 220 Z" fill="white" stroke="#5f6368"
+                                    stroke-width="1.2" />
+                                <!-- Chân gác chéo ngồi ghế -->
+                                <path d="M360 220 L335 275 L300 275" stroke="#5f6368" stroke-width="1.8" />
+                                <polygon points="360,220 375,220 345,280 320,280" fill="#d2e3fc" />
+
+                                <!-- Biểu tượng kính lúp và bảng nhỏ góc dưới phải -->
+                                <rect x="365" y="225" width="45" height="50" rx="2" stroke="#5f6368" stroke-width="1.2"
+                                    fill="white" />
+                                <line x1="365" y1="235" x2="410" y2="235" stroke="#dadce0" stroke-width="1" />
+                                <circle cx="410" cy="275" r="10" stroke="#5f6368" stroke-width="1.5" fill="white" />
+                                <line x1="417" y1="282" x2="425" y2="290" stroke="#5f6368" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
                         </div>
 
                     </div>
-                </section>
+                </div>
 
             </main>
 

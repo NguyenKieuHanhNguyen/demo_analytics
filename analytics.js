@@ -48,3 +48,31 @@ document.addEventListener('DOMContentLoaded', () => {
     setupDropdown('helpBtn', 'helpPopup');       // Popup Trợ giúp (?)
     setupDropdown('profileBtn', 'profilePopup'); // Popup Tài khoản
 });
+
+const subSidebar = document.getElementById('subSidebar');
+const toggleBtn = document.getElementById('toggleSidebarBtn');
+const toggleArrow = document.getElementById('toggleArrowIcon');
+
+if (toggleBtn && subSidebar && toggleArrow) {
+    let isCollapsed = false;
+
+    toggleBtn.addEventListener('click', () => {
+        isCollapsed = !isCollapsed;
+
+        if (isCollapsed) {
+            // Thu gọn sidebar: thu chiều rộng về 0 và giấu phần thừa
+            subSidebar.classList.remove('w-64');
+            subSidebar.classList.add('w-0', 'overflow-hidden');
+
+            // Xoay ngược mũi tên chỉ sang phải (báo hiệu bấm để mở lại)
+            toggleArrow.classList.add('rotate-180');
+        } else {
+            // Mở lại sidebar: trả lại độ rộng ban đầu w-64
+            subSidebar.classList.remove('w-0', 'overflow-hidden');
+            subSidebar.classList.add('w-64');
+
+            // Xoay mũi tên về lại hướng cũ
+            toggleArrow.classList.remove('rotate-180');
+        }
+    });
+}

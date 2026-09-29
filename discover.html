@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover-Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-bg-zinc-100 text-zinc-800 flex flex-col h-screen overflow-hidden antialiased">
+    <!-- ================= 1. HEADER (TRÊN CÙNG - TRẢI DÀI 100% WIDTH) ================= -->
+    <header
+        class="h-14 bg-white border-b border-zinc-200 px-4 flex items-center justify-between gap-4 flex-shrink-0 z-30">
+
+        <!-- Cụm trái: Logo Google Analytics + Chọn Tài khoản -->
+        <div class="flex items-center gap-3">
+            <a href="index.html" title="Về trang chủ" class="flex items-center gap-2 text-zinc-700 hover:opacity-90">
+                <!-- Logo màu cam 3 vạch GA -->
+                <svg class="w-6 h-6 text-amber-500 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-4h2v4zm0-6H9V8h2v2zm4 6h-2v-7h2v7zm0-9h-2V7h2v2z" />
+                </svg>
+                <span class="font-normal text-lg tracking-tight text-zinc-600">Analytics</span>
+            </a>
+
+            <!-- Vạch ngăn cách dọc -->
+            <div class="h-5 w-[1px] bg-zinc-300 mx-1"></div>
+
+            <!-- KHỐI CHỌN TÀI KHOẢN KÈM POPUP (RELATIVE) -->
+            <div class="relative">
+                <!-- Nút bấm kích hoạt -->
+                <button id="accountBtn"
+                    class="flex items-center gap-1.5 hover:bg-zinc-100 py-1 px-2.5 rounded border border-transparent hover:border-zinc-200 transition text-left group">
+                    <div>
+                        <div class="text-[10px] text-zinc-400 leading-none">All accounts &gt; Default Account for
+                            Fire...</div>
+                        <div class="text-xs font-semibold text-zinc-800 leading-tight flex items-center gap-1 mt-0.5">
+                            ltddbuoi11-2bdbb
+                            <svg class="w-3 h-3 text-zinc-500 group-hover:text-zinc-800 transition" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- ================= POPUP CHỌN TÀI KHOẢN (MẶC ĐỊNH ẨN: hidden) ================= -->
+                <div id="accountPopup"
+                    class="app-popup hidden absolute top-full left-0 mt-2 w-[540px] bg-white rounded-lg shadow-2xl border border-zinc-200 z-50 overflow-hidden flex flex-col text-xs animate-in fade-in duration-150">
+
+                    <!-- Hàng trên: Các Tab chọn và Ô tìm kiếm con -->
+                    <div class="p-3 border-b border-zinc-200 space-y-3 bg-white">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4 text-xs font-medium">
+                                <button class="text-blue-600 border-b-2 border-blue-600 pb-1 font-semibold">All</button>
+                                <button class="text-zinc-500 hover:text-zinc-800 pb-1">Favorites</button>
+                                <button class="text-zinc-500 hover:text-zinc-800 pb-1">Recently</button>
+                            </div>
+                            <a href="#" class="text-[11px] text-blue-600 hover:underline">Access The Platform
+                                Homepage</a>
+                        </div>
+
+                        <!-- Ô tìm kiếm nhỏ bên trong popup -->
+                        <div
+                            class="relative flex items-center bg-zinc-50 border border-zinc-300 rounded px-2.5 py-1.5 focus-within:border-blue-500 focus-within:bg-white">
+                            <svg class="w-3.5 h-3.5 text-zinc-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                            <input type="text" placeholder="Tìm kiếm"
+                                class="w-full bg-transparent text-xs text-zinc-700 outline-none placeholder-zinc-400" />
+                        </div>
+                    </div>
+
+                    <!-- Hàng tiêu đề 2 cột -->
+                    <div
+                        class="grid grid-cols-2 bg-zinc-50 border-b border-zinc-200 text-[11px] text-zinc-500 font-semibold px-3 py-2">
+                        <div>Analytics Account</div>
+                        <div class="border-l border-zinc-200 pl-3">Properties and apps</div>
+                    </div>
+
+                    <!-- Nội dung 2 cột danh sách -->
+                    <div class="grid grid-cols-2 min-h-[220px]">
+
+                        <!-- Cột 1: Danh sách tài khoản (Bên trái) -->
+                        <div class="p-1 space-y-0.5 border-r border-zinc-200 overflow-y-auto max-h-56">
+                            <div
+                                class="p-2.5 rounded bg-zinc-100 flex items-center justify-between cursor-pointer hover:bg-zinc-200/70 transition">
+                                <div>
+                                    <div class="font-medium text-zinc-800">Default Account for Firebase</div>
+                                    <div class="text-[10px] text-zinc-400 mt-0.5">395183895</div>
+                                </div>
+                                <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Cột 2: Danh sách thuộc tính & App (Bên phải) -->
+                        <div class="p-1 space-y-0.5 overflow-y-auto max-h-56">
+                            <div
+                                class="p-2.5 rounded hover:bg-zinc-50 flex items-center justify-between cursor-pointer transition group">
+                                <div>
+                                    <div class="font-medium text-zinc-800">ltddbuoi1...</div>
+                                    <div class="text-[10px] text-zinc-400 mt-0.5">538222707</div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <!-- Icon dấu tick đã chọn -->
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor"
+                                        stroke-width="2.5" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m4.5 12.75 6 6 9-13.5" />
+                                    </svg>
+                                    <!-- Icon ngôi sao ưa thích -->
+                                    <button class="text-zinc-400 hover:text-amber-400 transition"
+                                        title="Thêm vào ưa thích">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.601a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cụm giữa: Thanh tìm kiếm -->
+        <div class="flex-1 max-w-xl">
+            <div
+                class="relative flex items-center bg-[#f1f3f4] hover:bg-zinc-200/70 focus-within:bg-white focus-within:shadow-md rounded-lg px-3 py-1.5 transition">
+                <svg class="w-4 h-4 text-zinc-500 mr-2.5 flex-shrink-0" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+                <input type="text" placeholder='Thử tìm kiếm "thêm luồng web"'
+                    class="w-full bg-transparent text-xs text-zinc-700 placeholder-zinc-500 outline-none" />
+            </div>
+        </div>
+
+        <!-- Cụm phải: 9 chấm + Hỏi đáp + Avatar -->
+        <div class="flex items-center gap-1">
+
+            <!-- 1. POPUP 9 CHẤM (GOOGLE APPS) -->
+            <div class="relative">
+                <button id="appsBtn"
+                    class="w-8 h-8 rounded-full hover:bg-zinc-100 text-zinc-600 flex items-center justify-center transition"
+                    title="Ứng dụng Google">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 4c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                    </svg>
+                </button>
+
+                <!-- Bảng Ứng dụng Google -->
+                <div id="appsPopup"
+                    class="app-popup hidden absolute right-0 top-full mt-2 w-72 bg-white rounded-2xl shadow-xl border border-zinc-200 z-50 p-4">
+                    <div class="grid grid-cols-3 gap-3 text-center text-xs">
+                        <a href="https://www.google.com/search"
+                            class="p-2 hover:bg-zinc-100 rounded-xl flex flex-col items-center gap-1 text-zinc-700">
+                            <span
+                                class="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-xs">G</span>
+                            <span>Tìm kiếm</span>
+                        </a>
+                        <a href="https://mail.google.com/mail/u/0/"
+                            class="p-2 hover:bg-zinc-100 rounded-xl flex flex-col items-center gap-1 text-zinc-700">
+                            <span
+                                class="w-8 h-8 rounded-full bg-red-500 text-white flex items-center justify-center font-bold text-xs">M</span>
+                            <span>Gmail</span>
+                        </a>
+                        <a href="https://drive.google.com/drive/u/0/my-drive"
+                            class="p-2 hover:bg-zinc-100 rounded-xl flex flex-col items-center gap-1 text-zinc-700">
+                            <span
+                                class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs">D</span>
+                            <span>Drive</span>
+                        </a>
+                        <a href="https://calendar.google.com/calendar/u/0/r"
+                            class="p-2 hover:bg-zinc-100 rounded-xl flex flex-col items-center gap-1 text-zinc-700">
+                            <span
+                                class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs">31</span>
+                            <span>Lịch</span>
+                        </a>
+                        <a href="https://meet.google.com/"
+                            class="p-2 hover:bg-zinc-100 rounded-xl flex flex-col items-center gap-1 text-zinc-700">
+                            <span
+                                class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs">M</span>
+                            <span>Meet</span>
+                        </a>
+                        <a href="https://analytics.google.com/analytics/web/"
+                            class="p-2 hover:bg-zinc-100 rounded-xl flex flex-col items-center gap-1 text-zinc-700">
+                            <span
+                                class="w-8 h-8 rounded-full bg-amber-600 text-white flex items-center justify-center font-bold text-xs">GA</span>
+                            <span>Analytics</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. POPUP TRỢ GIÚP (?) -->
+            <div class="relative">
+                <button id="helpBtn"
+                    class="w-8 h-8 rounded-full hover:bg-zinc-100 text-zinc-600 flex items-center justify-center transition"
+                    title="Trợ giúp">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z" />
+                    </svg>
+                </button>
+
+                <!-- Bảng Menu Trợ giúp -->
+                <div id="helpPopup"
+                    class="app-popup hidden absolute right-0 top-full mt-2 w-64 bg-white rounded-xl shadow-xl border border-zinc-200 z-50 py-2 text-xs">
+                    <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-zinc-100 text-zinc-700">
+                        <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                        </svg>
+                        <span>Trung tâm trợ giúp</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-zinc-100 text-zinc-700">
+                        <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342" />
+                        </svg>
+                        <span>Đào tạo về Analytics</span>
+                    </a>
+                    <div class="border-t border-zinc-100 my-1"></div>
+                    <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-zinc-100 text-zinc-700">
+                        <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.502 49.188 49.188 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v5.018Z" />
+                        </svg>
+                        <span>Gửi phản hồi</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. POPUP TÀI KHOẢN (AVATAR N) -->
+            <div class="relative ml-1">
+                <button id="profileBtn"
+                    class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs ring-2 ring-zinc-200 cursor-pointer overflow-hidden select-none hover:ring-blue-400 transition"
+                    title="Tài khoản Google">
+                    N
+                </button>
+
+                <!-- Thẻ thông tin tài khoản -->
+                <div id="profilePopup"
+                    class="app-popup hidden absolute right-0 top-full mt-2 w-72 bg-white rounded-2xl shadow-xl border border-zinc-200 z-50 p-4 text-center">
+                    <div
+                        class="w-14 h-14 rounded-full bg-zinc-800 text-white font-bold text-xl flex items-center justify-center mx-auto mb-2">
+                        N
+                    </div>
+                    <div class="font-medium text-sm text-zinc-800">Hạnh Nguyên</div>
+                    <div class="text-xs text-zinc-500">user@gmail.com</div>
+
+                    <div class="mt-4 pt-3 border-t border-zinc-100 flex flex-col gap-2">
+                        <a href="#"
+                            class="w-full py-1.5 px-3 border border-zinc-300 hover:bg-zinc-50 rounded-full text-xs font-medium text-zinc-700 transition">
+                            Quản lý Tài khoản Google
+                        </a>
+                        <a href="#"
+                            class="w-full py-1.5 px-3 hover:bg-zinc-100 rounded-full text-xs text-red-600 transition">
+                            Đăng xuất
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= PHẦN DƯỚI HEADER (GỒM SIDEBAR BÊN TRÁI + MAIN BÊN PHẢI) ================= -->
+    <div class="flex-1 flex overflow-hidden relative">
+
+        <!-- 2. SIDEBAR (NẰM DƯỚI HEADER, BÊN TRÁI) -->
+        <aside
+            class="group h-full w-16 hover:w-56 bg-white border-r border-zinc-200 flex flex-col justify-between py-3 transition-all duration-300 ease-in-out z-20 flex-shrink-0 shadow-none hover:shadow-xl overflow-hidden">
+
+            <!-- Cụm Icon trên -->
+            <div class="flex flex-col gap-1 w-full pr-2">
+                <!-- 1. Trang chủ -->
+                <a href="#"
+                    class="flex items-center gap-3 px-3.5 py-2.5 bg-blue-600 hover:text-white hover:bg-blue-600 text-white rounded-r-full font-medium text-xs shadow-sm">
+                    <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                        </svg>
+                    </div>
+                    <span
+                        class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Home</span>
+                </a>
+
+                <!-- 2. Báo cáo -->
+                <a href="report.html"
+                    class="flex items-center gap-3 px-3.5 py-2.5 text-zinc-600 hover:text-white hover:bg-blue-600 rounded-r-full font-medium text-xs transition duration-150">
+                    <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 13h4v8H3v-8zm6-5h4v13H9V8zm6-6h4v19h-4V2z" />
+                        </svg>
+                    </div>
+                    <span
+                        class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Report</span>
+                </a>
+
+                <!-- 3. Khám phá -->
+                <a href="discover.html"
+                    class="flex items-center gap-3 px-3.5 py-2.5 text-zinc-600 hover:text-white hover:bg-blue-600 rounded-r-full font-medium text-xs transition duration-150">
+                    <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.949 8.949 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                    </div>
+                    <span
+                        class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Discover</span>
+                </a>
+
+                <!-- 4. Quảng cáo -->
+                <a href="ads.html"
+                    class="flex items-center gap-3 px-3.5 py-2.5 text-zinc-600 hover:text-white hover:bg-blue-600 rounded-r-full font-medium text-xs transition duration-150">
+                    <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
+                        </svg>
+                    </div>
+                    <span
+                        class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Advertisements</span>
+                </a>
+            </div>
+
+            <!-- Cụm Icon dưới -->
+            <div class="flex flex-col gap-1 w-full border-t border-zinc-100 pt-2 pr-2">
+                <!-- Công việc -->
+                <a href="#"
+                    class="flex items-center justify-between px-3.5 py-2 text-zinc-600 hover:text-white hover:bg-blue-600 rounded-r-full font-medium text-xs transition duration-150">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                        </div>
+                        <span
+                            class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Job
+                        </span>
+                    </div>
+                    <span
+                        class="w-5 h-5 rounded-full bg-zinc-600 text-white text-[10px] font-bold flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 mr-2">9</span>
+                </a>
+
+                <!-- Quản trị -->
+                <a href="#"
+                    class="flex items-center gap-3 px-3.5 py-2 text-zinc-600 hover:text-white hover:bg-blue-600 rounded-r-full font-medium text-xs transition duration-150">
+                    <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <span
+                        class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Administration</span>
+                </a>
+            </div>
+        </aside>
+        <div class="flex-1 w-full p-16">
+            <!-- Nội dung chính của trang -->
+            <span class="text-3xl text-zinc-800 font-normal"> Khám phá</span>
+            <div class=" flex items-center justify-between text-xs">
+                <p class="text-sm text-zinc-800/70">Bắt đầu một bản dữ liệu khám phá mới</p>
+                <a href="#" class="text-blue-600 hover:underline font-medium cursor-pointer ">Thư viện mẫu</a>
+            </div>
+            <!-- KHỐI BAO CAROUSEL (Dùng relative để neo 2 nút mũi tên absolute) -->
+            <div class="relative group">
+
+                <!-- 1. NÚT MŨI TÊN TRÁI (<) - Mặc định ẩn, khi cuộn qua phải sẽ hiện -->
+                <button id="prevSlideBtn"
+                    class="hidden absolute -left-4 top-20 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-zinc-200 shadow-md flex items-center justify-center text-blue-600 hover:bg-zinc-50 hover:shadow-lg transition z-20"
+                    title="Trước">
+                    <span class="material-symbols-outlined text-base select-none pl-1">
+                        arrow_back_ios
+                    </span>
+                </button>
+
+                <!-- 2. KHUNG CUỘN DANH SÁCH THẺ (DÀN HÀNG NGANG) -->
+                <div id="templateSlider"
+                    class="flex gap-4 overflow-x-auto scroll-smooth py-2 px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                    <!-- MỖI CARD: Dùng flex-shrink-0 và w-[calc(25%-12px)] hoặc min-w-[260px] để giữ kích thước chuẩn 4 card/màn hình -->
+
+                    <!-- Card 1: Trống -->
+                    <div class="flex-shrink-0 w-64 md:w-[calc(25%-12px)] group/card cursor-pointer">
+                        <div
+                            class="h-40 bg-white border border-zinc-200 rounded-lg flex items-center justify-center p-4 hover:border-blue-500 hover:shadow-md transition">
+                            <!-- SVG Dấu cộng Google -->
+                            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#4285f4" />
+                                <path d="M11 5v6H5v2h6v6h2v-6h6v-2h-6V5h-2z" fill="#ea4335"
+                                    clip-path="polygon(0 0, 12px 0, 12px 24px, 0 24px)" />
+                                <path d="M11 5v6H5v2h6v6h2v-6h6v-2h-6V5h-2z" fill="#fbbc05"
+                                    clip-path="polygon(0 12px, 24px 12px, 24px 24px, 0 24px)" />
+                                <path d="M11 5v6H5v2h6v6h2v-6h6v-2h-6V5h-2z" fill="#34a853"
+                                    clip-path="polygon(12px 12px, 24px 12px, 24px 24px, 12px 24px)" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 space-y-1">
+                            <h3 class="text-xs font-semibold text-zinc-800 group-hover/card:text-blue-600">Trống</h3>
+                            <p class="text-[11px] text-zinc-500">Tạo một bản khám phá mới</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Biểu mẫu tùy ý -->
+                    <div class="flex-shrink-0 w-64 md:w-[calc(25%-12px)] group/card cursor-pointer">
+                        <div
+                            class="h-40 bg-white border border-zinc-200 rounded-lg flex items-center justify-center p-4 hover:border-blue-500 hover:shadow-md transition">
+                            <!-- SVG Bảng lưới -->
+                        </div>
+                        <div class="mt-3 space-y-1">
+                            <h3 class="text-xs font-semibold text-zinc-800 group-hover/card:text-blue-600">Biểu mẫu tùy
+                                ý</h3>
+                            <p class="text-[11px] text-zinc-500 line-clamp-3">Bạn có thể khám phá những thông tin chi
+                                tiết nào thông qua các bảng và biểu đồ tùy chỉnh?</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Khám phá phễu -->
+                    <div class="flex-shrink-0 w-64 md:w-[calc(25%-12px)] group/card cursor-pointer">
+                        <div
+                            class="h-40 bg-white border border-zinc-200 rounded-lg flex items-center justify-center p-4 hover:border-blue-500 hover:shadow-md transition">
+                            <!-- SVG Cột phễu -->
+                        </div>
+                        <div class="mt-3 space-y-1">
+                            <h3 class="text-xs font-semibold text-zinc-800 group-hover/card:text-blue-600">Khám phá phễu
+                            </h3>
+                            <p class="text-[11px] text-zinc-500 line-clamp-3">Bạn có thể phân tích, phân đoạn và chia
+                                nhỏ các hành trình nào của người dùng thông qua phễu nhiều bước?</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Khám phá lộ trình -->
+                    <div class="flex-shrink-0 w-64 md:w-[calc(25%-12px)] group/card cursor-pointer">
+                        <div
+                            class="h-40 bg-white border border-zinc-200 rounded-lg flex items-center justify-center p-4 hover:border-blue-500 hover:shadow-md transition">
+                            <!-- SVG Biểu đồ luồng Sankey -->
+                        </div>
+                        <div class="mt-3 space-y-1">
+                            <h3 class="text-xs font-semibold text-zinc-800 group-hover/card:text-blue-600">Khám phá lộ
+                                trình</h3>
+                            <p class="text-[11px] text-zinc-500 line-clamp-3">Bạn có thể khám phá những hành trình nào
+                                của người dùng thông qua biểu đồ cây?</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Chồng chéo phân khúc -->
+                    <div class="flex-shrink-0 w-64 md:w-[calc(25%-12px)] group/card cursor-pointer">
+                        <div
+                            class="h-40 bg-white border border-zinc-200 rounded-lg flex items-center justify-center p-4 hover:border-blue-500 hover:shadow-md transition">
+                            <!-- SVG 2 hình tròn giao nhau (Venn diagram) -->
+                            <svg class="w-36 h-28" viewBox="0 0 140 100" fill="none">
+                                <circle cx="55" cy="50" r="32" fill="#4285f4" fill-opacity="0.35" stroke="#1a73e8"
+                                    stroke-width="1.5" />
+                                <circle cx="85" cy="50" r="26" fill="#4285f4" fill-opacity="0.35" stroke="#1a73e8"
+                                    stroke-width="1.5" />
+                                <line x1="15" y1="30" x2="35" y2="30" stroke="#dadce0" stroke-width="2" />
+                                <line x1="105" y1="30" x2="125" y2="30" stroke="#dadce0" stroke-width="2" />
+                                <line x1="15" y1="70" x2="40" y2="70" stroke="#dadce0" stroke-width="2" />
+                                <line x1="105" y1="70" x2="130" y2="70" stroke="#dadce0" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 space-y-1">
+                            <h3 class="text-xs font-semibold text-zinc-800 group-hover/card:text-blue-600">Chồng chéo
+                                phân khúc</h3>
+                            <p class="text-[11px] text-zinc-500 line-clamp-3">Điểm chung nào về phân đoạn người dùng cho
+                                bạn biết về hành vi của họ?</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 3. NÚT MŨI TÊN PHẢI (>) -->
+                <button id="nextSlideBtn"
+                    class="absolute -right-4 top-20 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-zinc-200 shadow-md flex items-center justify-center text-zinc-600 hover:bg-zinc-50 hover:shadow-lg transition z-20"
+                    title="Tiếp">
+                    <!-- Icon arrow_forward_ios -->
+                    <span class="material-symbols-outlined text-base select-none">
+                        arrow_forward_ios
+                    </span>
+                </button>
+
+            </div>
+        </div>
+
+
+    </div>
+    <!-- FOOTER -->
+    <footer
+        class="w-full border-t border-zinc-200 bg-white py-3 px-6 flex items-center justify-center text-xs text-gray-500 gap-2 flex-shrink-0">
+        <span>© 2026 Google</span>
+        <span class="text-gray-300">|</span>
+        <a href="#" class="text-blue-600 hover:underline">Privacy</a>
+        <span class="text-gray-300">|</span>
+        <a href="#" class="text-blue-600 hover:underline">Terms</a>
+        <span class="text-gray-300">|</span>
+        <a href="#" class="text-blue-600 hover:underline">Program Policy</a>
+        <span class="text-gray-300">|</span>
+        <a href="#" class="text-blue-600 hover:underline">Advertiser Content Policy</a>
+        <span class="text-gray-300">|</span>
+        <a href="#" class="hover:text-zinc-700">Business contact</a>
+    </footer>
+
+
+
+</body>
+
+</html>
