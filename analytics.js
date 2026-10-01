@@ -50,29 +50,117 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const subSidebar = document.getElementById('subSidebar');
+const subSidebarContent = document.getElementById('subSidebarContent');
 const toggleBtn = document.getElementById('toggleSidebarBtn');
 const toggleArrow = document.getElementById('toggleArrowIcon');
 
-if (toggleBtn && subSidebar && toggleArrow) {
+if (toggleBtn && subSidebar && subSidebarContent && toggleArrow) {
     let isCollapsed = false;
 
-    toggleBtn.addEventListener('click', () => {
+    toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         isCollapsed = !isCollapsed;
 
         if (isCollapsed) {
-            // Thu gọn sidebar: thu chiều rộng về 0 và giấu phần thừa
-            subSidebar.classList.remove('w-64');
-            subSidebar.classList.add('w-0', 'overflow-hidden');
+            // 1. Thu chiều rộng aside về 0 và gỡ border-r để phẳng hoàn toàn
+            subSidebar.classList.remove('w-64', 'border-r');
+            subSidebar.classList.add('w-0');
 
-            // Xoay ngược mũi tên chỉ sang phải (báo hiệu bấm để mở lại)
+            // 2. Ẩn nội dung chữ (mờ dần và không nhận sự kiện click)
+            subSidebarContent.classList.add('opacity-0', 'pointer-events-none');
+
+            // 3. Xoay ngược mũi tên chỉ sang phải (>)
             toggleArrow.classList.add('rotate-180');
         } else {
-            // Mở lại sidebar: trả lại độ rộng ban đầu w-64
-            subSidebar.classList.remove('w-0', 'overflow-hidden');
-            subSidebar.classList.add('w-64');
+            // 1. Mở lại sidebar về w-64 và bật lại border-r
+            subSidebar.classList.remove('w-0');
+            subSidebar.classList.add('w-64', 'border-r');
 
-            // Xoay mũi tên về lại hướng cũ
+            // 2. Hiện lại khối nội dung
+            subSidebarContent.classList.remove('opacity-0', 'pointer-events-none');
+
+            // 3. Xoay mũi tên về lại hướng cũ (<)
             toggleArrow.classList.remove('rotate-180');
         }
     });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('templateSlider');
+    const prevBtn = document.getElementById('prevSlideBtn');
+    const nextBtn = document.getElementById('nextSlideBtn');
+
+    function updateSliderButtons() {
+        if (!slider || !prevBtn || !nextBtn) return;
+        const scrollLeft = slider.scrollLeft;
+        const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+        // Trạng thái nút trái (<)
+        if (scrollLeft <= 10) {
+            prevBtn.classList.add('hidden');
+            prevBtn.classList.remove('flex');
+        } else {
+            prevBtn.classList.remove('hidden');
+            prevBtn.classList.add('flex');
+        }
+
+        // Trạng thái nút phải (>)
+        if (scrollLeft >= maxScroll - 10) {
+            nextBtn.classList.add('hidden');
+            nextBtn.classList.remove('flex');
+        } else {
+            nextBtn.classList.remove('hidden');
+            nextBtn.classList.add('flex');
+        }
+    }
+
+    nextBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: 320, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        slider.scrollBy({ left: -320, behavior: 'smooth' });
+    });
+
+    slider.addEventListener('scroll', updateSliderButtons);
+    window.addEventListener('resize', updateSliderButtons);
+    updateSliderButtons();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabBtns.forEach(b => {
+                b.classList.remove('text-[#1a73e8]', 'border-[#1a73e8]', 'font-semibold');
+                b.classList.add('text-zinc-600', 'border-transparent');
+            });
+            btn.classList.add('text-[#1a73e8]', 'border-[#1a73e8]', 'font-semibold');
+            btn.classList.remove('text-zinc-600', 'border-transparent');
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const headerBtn = document.getElementById('accordionHeaderBtn');
+    const body = document.getElementById('accordionBody');
+    const arrow = document.getElementById('accordionArrow');
+
+    if (headerBtn && body && arrow) {
+        let isOpen = true; // Mặc định trong ảnh là đang mở
+
+        headerBtn.addEventListener('click', () => {
+            isOpen = !isOpen;
+
+            if (isOpen) {
+                body.classList.remove('hidden');
+                // Mũi tên quay lên (^)
+                arrow.classList.remove('rotate-180');
+            } else {
+                body.classList.add('hidden');
+                // Mũi tên quay xuống (v)
+                arrow.classList.add('rotate-180');
+            }
+        });
+    }
+});

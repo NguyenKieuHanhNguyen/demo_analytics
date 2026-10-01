@@ -308,216 +308,236 @@
             </div>
 
             <!-- Cụm dưới -->
-            <div class="flex flex-col gap-2 w-full px-2 border-t border-zinc-100 pt-2 items-center">
-                <a href="#"
-                    class="w-10 h-10 rounded-full flex items-center justify-center text-zinc-600 hover:bg-zinc-100 transition"
-                    title="Công việc">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
+            <div class="flex flex-col gap-1 w-full border-t border-zinc-100 pt-2 pr-2">
+                <!-- Công việc -->
+                <a href="task.html"
+                    class="flex items-center justify-between px-3.5 py-2 text-zinc-600 hover:text-white hover:bg-blue-600 rounded-r-full font-medium text-xs transition duration-150">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                        </div>
+                        <span
+                            class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Job
+                        </span>
+                    </div>
+                    <span
+                        class="w-5 h-5 rounded-full bg-zinc-600 text-white text-[10px] font-bold flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 mr-2">9</span>
                 </a>
-                <a href="#"
-                    class="w-10 h-10 rounded-full flex items-center justify-center text-zinc-600 hover:bg-zinc-100 transition"
-                    title="Quản trị">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
+
+                <!-- Quản trị -->
+                <a href="admin.html"
+                    class="flex items-center gap-3 px-3.5 py-2 text-zinc-600 hover:text-white hover:bg-blue-600 rounded-r-full font-medium text-xs transition duration-150">
+                    <div class="w-9 flex-shrink-0 flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <span
+                        class="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">Administration</span>
                 </a>
             </div>
         </aside>
 
         <!-- 2. SIDEBAR THỨ HAI: MENU CÂY BÁO CÁO (SUB-SIDEBAR) -->
         <aside id="subSidebar"
-            class="w-64 bg-white border-r border-zinc-200 flex flex-col justify-between text-xs flex-shrink-0 select-none">
+            class="relative w-64 bg-white border-r border-zinc-200 flex flex-col justify-between text-xs flex-shrink-0 select-none transition-all duration-300">
 
-            <!-- Khối cuộn danh sách mục -->
-            <div class="flex-1 overflow-y-auto p-3 space-y-4">
+            <!-- KHỐI BỌC NỘI DUNG (ĐỂ ẨN CHỮ KHI THU GỌN MÀ KHÔNG ẢNH HƯỞNG ĐẾN NÚT) -->
+            <div id="subSidebarContent"
+                class="w-64 h-full flex flex-col justify-between overflow-hidden transition-opacity duration-200">
 
-                <!-- Nút Tạo (Google Material Style) -->
-                <div>
-                    <button
-                        class="inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-zinc-50 border border-zinc-300 rounded-full shadow-sm text-zinc-700 font-medium transition">
-                        <!-- Icon dấu cộng 4 màu Google -->
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#4285f4" />
-                            <path d="M11 5v6H5v2h6v6h2v-6h6v-2h-6V5h-2z" fill="#ea4335"
-                                clip-path="polygon(0 0, 12px 0, 12px 24px, 0 24px)" />
-                            <path d="M11 5v6H5v2h6v6h2v-6h6v-2h-6V5h-2z" fill="#fbbc05"
-                                clip-path="polygon(0 12px, 24px 12px, 24px 24px, 0 24px)" />
-                            <path d="M11 5v6H5v2h6v6h2v-6h6v-2h-6V5h-2z" fill="#34a853"
-                                clip-path="polygon(12px 12px, 24px 12px, 24px 24px, 12px 24px)" />
-                        </svg>
-                        <span>Tạo</span>
-                        <svg class="w-3 h-3 text-zinc-400 ml-1" fill="none" stroke="currentColor" stroke-width="2"
+                <!-- Khối cuộn danh sách mục -->
+                <div class="flex-1 overflow-y-auto p-3 space-y-4">
+
+                    <!-- Nút Tạo (Google Material Style) -->
+                    <div>
+                        <button
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-zinc-50 border border-zinc-300 rounded-full shadow-sm text-zinc-700 font-medium transition cursor-pointer">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="#4285f4" />
+                                <path d="M11 5v6H5v2h6v6h2v-6h6v-2h-6V5h-2z" fill="#ea4335"
+                                    clip-path="polygon(0 0, 12px 0, 12px 24px, 0 24px)" />
+                                <path d="M11 5v6H5v2h6v6h2v-6h6v-2h-6V5h-2z" fill="#fbbc05"
+                                    clip-path="polygon(0 12px, 24px 12px, 24px 24px, 0 24px)" />
+                                <path d="M11 5v6H5v2h6v6h2v-6h6v-2h-6V5h-2z" fill="#34a853"
+                                    clip-path="polygon(12px 12px, 24px 12px, 24px 24px, 12px 24px)" />
+                            </svg>
+                            <span>Tạo</span>
+                            <svg class="w-3 h-3 text-zinc-400 ml-1" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- 3 mục đầu trang -->
+                    <div class="space-y-0.5">
+                        <a href="#" class="block px-3 py-2 rounded-r-full font-medium bg-[#e8f0fe] text-[#1a73e8]">
+                            Tổng quan nhanh về báo cáo
+                        </a>
+                        <a href="#" class="block px-3 py-2 rounded-r-full text-zinc-700 hover:bg-zinc-100 transition">
+                            Tổng quan theo thời gian thực
+                        </a>
+                        <a href="#" class="block px-3 py-2 rounded-r-full text-zinc-700 hover:bg-zinc-100 transition">
+                            Trang theo thời gian thực
+                        </a>
+                    </div>
+
+                    <div class="border-t border-zinc-100"></div>
+
+                    <!-- CÂY THƯ MỤC CÓ THỂ ĐÓNG MỞ -->
+                    <div class="space-y-3">
+                        <!-- Nhóm 1 -->
+                        <div>
+                            <div
+                                class="flex items-center justify-between text-zinc-600 font-medium px-2 py-1 cursor-pointer hover:text-zinc-900">
+                                <span>Mục tiêu kinh doanh</span>
+                                <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                                </svg>
+                            </div>
+                            <div class="mt-1 space-y-0.5 pl-2 text-zinc-600">
+                                <a href="#"
+                                    class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 transition truncate">
+                                    <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor"
+                                        stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                    <span>Tạo khách hàng tiềm năng</span>
+                                </a>
+                                <a href="#"
+                                    class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 transition truncate">
+                                    <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor"
+                                        stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                    <span>Tăng doanh số</span>
+                                </a>
+                                <a href="#"
+                                    class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 transition truncate">
+                                    <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor"
+                                        stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                    <span>Tìm hiểu lưu lượng truy cập web...</span>
+                                </a>
+                                <a href="#"
+                                    class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 transition truncate">
+                                    <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor"
+                                        stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                    <span>Xem mức độ tương tác và tỷ l...</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Nhóm 2 -->
+                        <div>
+                            <div
+                                class="flex items-center justify-between text-zinc-600 font-medium px-2 py-1 cursor-pointer hover:text-zinc-900">
+                                <span>Người dùng</span>
+                                <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                                </svg>
+                            </div>
+                            <div class="mt-1 space-y-0.5 pl-2 text-zinc-600">
+                                <a href="#"
+                                    class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 transition truncate">
+                                    <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor"
+                                        stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                    <span>Thuộc tính người dùng</span>
+                                </a>
+                                <a href="#"
+                                    class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 transition truncate">
+                                    <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor"
+                                        stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                    <span>Công nghệ</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Nhóm 3 -->
+                        <div>
+                            <div
+                                class="flex items-center justify-between text-zinc-600 font-medium px-2 py-1 cursor-pointer hover:text-zinc-900">
+                                <span>Nhà phát triển ứng dụng</span>
+                                <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                                </svg>
+                            </div>
+                            <div class="mt-1 pl-6">
+                                <a href="#"
+                                    class="block py-1.5 text-zinc-600 hover:text-zinc-900 transition">Firebase</a>
+                            </div>
+                        </div>
+
+                        <!-- Nhóm 4 -->
+                        <div>
+                            <div
+                                class="flex items-center justify-between text-zinc-600 font-medium px-2 py-1 cursor-pointer hover:text-zinc-900">
+                                <span>Nhập dữ liệu</span>
+                                <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                                </svg>
+                            </div>
+                            <div class="mt-1 pl-6">
+                                <a href="#"
+                                    class="block py-1.5 text-zinc-600 hover:text-zinc-900 transition truncate">Xác thực
+                                    việc nhập dữ liệu ch...</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Đáy Sub-Sidebar: Thư viện -->
+                <div class="p-3 border-t border-zinc-200 flex items-center justify-between h-12">
+                    <a href="#"
+                        class="flex items-center gap-2 px-2 py-1.5 text-zinc-700 hover:bg-zinc-100 rounded transition font-medium">
+                        <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2"
                             viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
                         </svg>
-                    </button>
-                </div>
-
-                <!-- 3 mục đầu trang -->
-                <div class="space-y-0.5">
-                    <!-- Active: Nền xanh nhạt, chữ xanh đậm -->
-                    <a href="#" class="block px-3 py-2 rounded-r-full font-medium bg-[#e8f0fe] text-[#1a73e8]">
-                        Tổng quan nhanh về báo cáo
+                        <span>Thư viện</span>
                     </a>
-                    <a href="#" class="block px-3 py-2 rounded-r-full text-zinc-700 hover:bg-zinc-100 transition">
-                        Tổng quan theo thời gian thực
-                    </a>
-                    <a href="#" class="block px-3 py-2 rounded-r-full text-zinc-700 hover:bg-zinc-100 transition">
-                        Trang theo thời gian thực
-                    </a>
-                </div>
-
-                <div class="border-t border-zinc-100"></div>
-
-                <!-- CÂY THƯ MỤC CÓ THỂ ĐÓNG MỞ (COLLAPSIBLE GROUPS) -->
-                <div class="space-y-3">
-
-                    <!-- Nhóm 1: Mục tiêu kinh doanh -->
-                    <div>
-                        <div
-                            class="flex items-center justify-between text-zinc-600 font-medium px-2 py-1 cursor-pointer hover:text-zinc-900">
-                            <span>Mục tiêu kinh doanh</span>
-                            <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                            </svg>
-                        </div>
-                        <div class="mt-1 space-y-0.5 pl-2 text-zinc-600">
-                            <a href="#"
-                                class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 transition truncate">
-                                <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                                <span>Tạo khách hàng tiềm năng</span>
-                            </a>
-                            <a href="#"
-                                class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 transition truncate">
-                                <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                                <span>Tăng doanh số</span>
-                            </a>
-                            <a href="#"
-                                class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 transition truncate">
-                                <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                                <span>Tìm hiểu lưu lượng truy cập web...</span>
-                            </a>
-                            <a href="#"
-                                class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 transition truncate">
-                                <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                                <span>Xem mức độ tương tác và tỷ l...</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Nhóm 2: Người dùng -->
-                    <div>
-                        <div
-                            class="flex items-center justify-between text-zinc-600 font-medium px-2 py-1 cursor-pointer hover:text-zinc-900">
-                            <span>Người dùng</span>
-                            <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                            </svg>
-                        </div>
-                        <div class="mt-1 space-y-0.5 pl-2 text-zinc-600">
-                            <a href="#"
-                                class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 transition truncate">
-                                <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                                <span>Thuộc tính người dùng</span>
-                            </a>
-                            <a href="#"
-                                class="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 transition truncate">
-                                <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                                <span>Công nghệ</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Nhóm 3: Nhà phát triển ứng dụng -->
-                    <div>
-                        <div
-                            class="flex items-center justify-between text-zinc-600 font-medium px-2 py-1 cursor-pointer hover:text-zinc-900">
-                            <span>Nhà phát triển ứng dụng</span>
-                            <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                            </svg>
-                        </div>
-                        <div class="mt-1 pl-6">
-                            <a href="#" class="block py-1.5 text-zinc-600 hover:text-zinc-900 transition">Firebase</a>
-                        </div>
-                    </div>
-
-                    <!-- Nhóm 4: Nhập dữ liệu -->
-                    <div>
-                        <div
-                            class="flex items-center justify-between text-zinc-600 font-medium px-2 py-1 cursor-pointer hover:text-zinc-900">
-                            <span>Nhập dữ liệu</span>
-                            <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                            </svg>
-                        </div>
-                        <div class="mt-1 pl-6">
-                            <a href="#" class="block py-1.5 text-zinc-600 hover:text-zinc-900 transition truncate">Xác
-                                thực việc nhập dữ liệu ch...</a>
-                        </div>
-                    </div>
-
                 </div>
 
             </div>
 
-            <!-- Đáy Sub-Sidebar: Thư viện & Nút thu gọn mũi tên < -->
-            <div class="p-2 border-t border-zinc-200 flex items-center justify-between">
-                <a href="#"
-                    class="flex items-center gap-2 px-2 py-1.5 text-zinc-700 hover:bg-zinc-100 rounded transition font-medium">
-                    <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
-                    </svg>
-                    <span>Thư viện</span>
-                </a>
-                <!-- NÚT MŨI TÊN THU / MỞ SIDEBAR NẰM Ở ĐÁY MÉP PHẢI -->
-                <div class="relative px-3 py-2 border-t border-zinc-200 flex items-center justify-end h-12">
-                    <button id="toggleSidebarBtn"
-                        class="absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 w-6 h-8 bg-zinc-100 hover:bg-zinc-200 border border-zinc-300 rounded-md shadow-sm flex items-center justify-center text-zinc-700 transition z-50 cursor-pointer"
-                        title="Thu gọn / Mở rộng">
-                        <!-- Mũi tên chuyển hướng bằng transition rotate -->
-                        <svg id="toggleArrowIcon" class="w-3.5 h-3.5 transition-transform duration-300 transform"
-                            fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
+            <!-- NÚT MŨI TÊN: Đặt trực tiếp dưới <aside>, độc lập với khối nội dung -->
+            <button id="toggleSidebarBtn"
+                class="absolute left-full -translate-x-1/2 bottom-3 w-6 h-8 bg-zinc-100 hover:bg-zinc-200 border border-zinc-300 rounded-md shadow-sm flex items-center justify-center text-zinc-700 transition-all duration-300 z-50 cursor-pointer"
+                title="Thu gọn / Mở rộng">
+                <svg id="toggleArrowIcon" class="w-3.5 h-3.5 transition-transform duration-300 transform" fill="none"
+                    stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+            </button>
 
         </aside>
 
@@ -594,10 +614,17 @@
                                     </svg>
                                 </div>
                             </div>
-                            <button
-                                class="w-full py-2 bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium rounded transition">
-                                Chọn mẫu này
-                            </button>
+                            <div class="mt-auto pt-4 space-y-2">
+                                <div class="border-zinc-200 border-t"></div>
+                                <button
+                                    class="mt-1.5 w-full py-2 bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium rounded transition">
+                                    Chọn mẫu này
+                                </button>
+                                <button
+                                    class="mt-1.5 w-full py-2 hover:bg-zinc-100 text-blue-600 text-xs font-medium rounded transition border border-blue-600">
+                                    Xem trước mẫu
+                                </button>
+                            </div>
                         </div>
 
                         <!-- Card 2: Doanh số và doanh thu -->
@@ -624,10 +651,17 @@
                                     </svg>
                                 </div>
                             </div>
-                            <button
-                                class="w-full py-2 bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium rounded transition">
-                                Chọn mẫu này
-                            </button>
+                            <div class="mt-auto pt-4 space-y-2">
+                                <div class="border-zinc-200 border-t"></div>
+                                <button
+                                    class="mt-1.5 w-full py-2 bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium rounded transition">
+                                    Chọn mẫu này
+                                </button>
+                                <button
+                                    class="mt-1.5 w-full py-2 hover:bg-zinc-100 text-blue-600 text-xs font-medium rounded transition border border-blue-600">
+                                    Xem trước mẫu
+                                </button>
+                            </div>
                         </div>
 
                         <!-- Card 3: Hiệu suất tiếp thị -->
@@ -654,13 +688,24 @@
                                     </svg>
                                 </div>
                             </div>
-                            <button
-                                class="w-full py-2 bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium rounded transition">
-                                Chọn mẫu này
-                            </button>
+                            <div class="mt-auto pt-4 space-y-2">
+                                <div class="border-zinc-200 border-t"></div>
+                                <button
+                                    class="mt-1.5 w-full py-2 bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium rounded transition">
+                                    Chọn mẫu này
+                                </button>
+                                <button
+                                    class="mt-1.5 w-full py-2 hover:bg-zinc-100 text-blue-600 text-xs font-medium rounded transition border border-blue-600">
+                                    Xem trước mẫu
+                                </button>
+                            </div>
                         </div>
 
                     </div>
+                    <button
+                        class="block mx-auto mt-6 px-5 py-2.5 border border-blue-600 text-blue-600 hover:bg-blue-50 text-xs font-medium rounded-lg transition duration-150 cursor-pointer">
+                        Quay lại tổng quan nhanh về báo cáo trước đó
+                    </button>
                 </section>
 
             </main>
