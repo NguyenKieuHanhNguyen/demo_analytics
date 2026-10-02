@@ -480,398 +480,346 @@
           </div>
         </nav>
 
-        <!-- ================= C. NỘI DUNG CÁC ACCORDION NHIỆM VỤ ================= -->
+        <!-- KHU VỰC CHỨA CẢ 6 MỤC ACCORDION -->
         <div class="max-w-6xl mx-auto p-6 lg:p-8 space-y-3">
 
-          <!-- 1. THANH TIÊU ĐỀ ACCORDION (BẤM ĐỂ ĐÓNG/MỞ) -->
-          <!-- Mục 1: Bắt đầu -->
-          <div class="bg-white border border-zinc-200 rounded-lg shadow-2xs overflow-hidden transition">
-            <button id="accordionHeaderBtn"
-              class="w-full px-6 py-4 flex items-center justify-between hover:bg-zinc-50/70 transition cursor-pointer select-none">
-              <span class="text-base font-medium text-zinc-900">Bắt đầu</span>
-
+          <!-- ================= 1. BẮT ĐẦU ================= -->
+          <div id="section-start"
+            class="accordion-card scroll-mt-14 bg-white border border-zinc-200 rounded-lg shadow-2xs overflow-hidden transition">
+            <button type="button"
+              class="accordion-header w-full px-6 py-4 flex items-center justify-between hover:bg-zinc-50/70 transition cursor-pointer select-none">
+              <span class="text-sm font-medium text-zinc-900">Bắt đầu</span>
               <div class="flex items-center gap-4">
-                <span class="px-2.5 py-1 bg-blue-50 text-[#1a73e8] text-xs font-medium rounded-full">
-                  Còn 4 / 6 nhiệm vụ
-                </span>
-                <!-- Mũi tên: mặc định quay lên khi đang mở -->
-                <svg id="accordionArrow" class="w-4 h-4 text-zinc-600 transition-transform duration-300" fill="none"
+                <span class="px-2.5 py-1 bg-blue-50 text-[#1a73e8] text-xs font-medium rounded-full">Còn 4 / 6 nhiệm
+                  vụ</span>
+                <svg class="accordion-arrow w-4 h-4 text-zinc-600 transition-transform duration-300" fill="none"
                   stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
               </div>
             </button>
+            <div class="accordion-body hidden px-6 pb-6 pt-1 space-y-4">
+              <p class="text-xs text-zinc-600">Bắt đầu sử dụng Analytics bằng cách thu thập dữ liệu và quyết định cách
+                dữ liệu xuất hiện trong báo cáo</p>
 
-            <!-- 2. NỘI DUNG XỔ XUỐNG KHI MỞ -->
-            <div id="accordionBody" class="px-6 pb-6 pt-1 space-y-4">
-
-              <!-- Đoạn mô tả đầu nhóm -->
-              <p class="text-xs text-zinc-600">
-                Bắt đầu sử dụng Analytics bằng cách thu thập dữ liệu và quyết định cách dữ liệu xuất hiện trong báo cáo
-              </p>
-
-              <!-- CARD NHIỆM VỤ ĐANG MỞ (ACTIVE TASK) -->
+              <!-- Sub-task đang mở -->
               <div class="bg-[#f8f9fa] border border-zinc-200/80 rounded-xl p-5 space-y-4">
-
-                <!-- Tên nhiệm vụ + Icon tròn viền đen -->
                 <div class="flex items-center gap-3">
                   <div class="w-5 h-5 rounded-full border-2 border-zinc-800 flex-shrink-0"></div>
                   <h3 class="text-xs font-semibold text-zinc-900">Thiết lập tính năng thu thập dữ liệu</h3>
                 </div>
-
-                <!-- Mô tả chi tiết & link -->
                 <p class="text-xs text-zinc-600 leading-relaxed pl-8">
                   Thiết lập kết nối với Google Analytics bằng cách thêm mã hoặc SDK vào trang web hoặc ứng dụng của bạn
-                  để
-                  các báo cáo có thể bắt đầu điền sẵn dữ liệu.
-                  <a href="#" class="text-[#1a73e8] hover:underline inline-flex items-center gap-0.5">
-                    Tìm hiểu thêm về cách thiết lập một tài sản
-                    <svg class="w-3.5 h-3.5 text-zinc-500 inline ml-0.5" fill="none" stroke="currentColor"
-                      stroke-width="2" viewBox="0 0 24 24">
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round" />
-                      <line x1="12" y1="17" x2="12.01" y2="17" stroke-linecap="round" stroke-width="2.5" />
-                    </svg>
-                  </a>
+                  để các báo cáo có thể bắt đầu điền sẵn dữ liệu.
+                  <a href="#" class="text-[#1a73e8] hover:underline">Tìm hiểu thêm về cách thiết lập một tài sản</a>
                 </p>
-
-                <!-- Hàng nút hành động & đánh giá -->
-                <div class="flex flex-wrap items-center justify-between gap-4 pt-1 pl-8">
-                  <!-- Cụm nút bên trái -->
-                  <div class="flex items-center gap-2.5">
-                    <!-- Nút Hành động xanh dương có icon Check -->
-                    <button
-                      class="px-4 py-2 bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium rounded shadow-xs inline-flex items-center gap-1.5 transition cursor-pointer">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                      </svg>
-                      <span>Hành động</span>
-                    </button>
-
-                    <!-- Nút Xem video -->
-                    <button
-                      class="px-3.5 py-2 bg-white hover:bg-zinc-50 border border-zinc-300 text-[#1a73e8] text-xs font-medium rounded shadow-2xs inline-flex items-center gap-2 transition cursor-pointer">
-                      <svg class="w-4 h-4 text-[#1a73e8]" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                          d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-                      </svg>
-                      <span>Xem video</span>
-                    </button>
-                  </div>
-
-                  <!-- Cụm đánh giá bên phải: Is this helpful? 👍 👎 -->
-                  <div class="flex items-center gap-2 text-xs text-zinc-500">
-                    <span>Is this helpful?</span>
-                    <!-- Nút Like -->
-                    <button class="p-1 hover:text-zinc-800 transition cursor-pointer" title="Hữu ích">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M6.633 10.25c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75a.75.75 0 0 1 .75-.75 2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H13.5a4.5 4.5 0 0 1-1.423-.23l-3.114-1.04a4.5 4.5 0 0 0-1.423-.23H6.633" />
-                      </svg>
-                    </button>
-                    <!-- Nút Dislike -->
-                    <button class="p-1 hover:text-zinc-800 transition cursor-pointer" title="Không hữu ích">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M7.5 15h2.25m8.024-9.75c.806 0 1.533.446 2.031 1.08a9.041 9.041 0 0 0 2.861 2.4c.723.384 1.35.956 1.653 1.715.207.518.322 1.083.322 1.672v.632a.75.75 0 0 1-.75.75 2.25 2.25 0 0 1-2.25-2.25c0-1.152-.26-2.243-.723-3.218-.266-.558.107-1.282.725-1.282h3.126c1.026 0 1.945-.694 2.054-1.715.045-.422.068-.85.068-1.285a11.95 11.95 0 0 0-2.649-7.521c-.388-.482-.987-.729-1.605-.729H13.5a4.5 4.5 0 0 0-1.423.23l-3.114 1.04a4.5 4.5 0 0 1-1.423.23H7.5" />
-                      </svg>
-                    </button>
-                  </div>
-
+                <div class="flex items-center gap-2.5 pt-1 pl-8">
+                  <button
+                    class="px-4 py-2 bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium rounded shadow-xs inline-flex items-center gap-1.5 transition cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                    <span>Hành động</span>
+                  </button>
+                  <button
+                    class="px-3.5 py-2 bg-white hover:bg-zinc-50 border border-zinc-300 text-[#1a73e8] text-xs font-medium rounded shadow-2xs inline-flex items-center gap-2 transition cursor-pointer">
+                    <svg class="w-4 h-4 text-[#1a73e8]" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                    </svg>
+                    <span>Xem video</span>
+                  </button>
                 </div>
-
               </div>
-              <!-- DANH SÁCH CÁC NHIỆM VỤ BỊ KHÓA (LOCKED) -->
-              <div class="space-y-3.5 pt-2 pl-2">
 
-                <!-- Khóa 1 -->
-                <div class="flex items-center gap-3 text-xs text-zinc-500 cursor-not-allowed">
-                  <svg class="w-4 h-4 text-zinc-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
+              <!-- Khóa con -->
+              <div class="space-y-3 pt-2 pl-2">
+                <div class="flex items-center gap-3 text-xs text-zinc-500"><svg class="w-4 h-4 text-zinc-400"
+                    fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
                       d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
-                  </svg>
-                  <span>Bật tín hiệu của Google</span>
-                </div>
-
-                <!-- Khóa 2 -->
-                <div class="flex items-center gap-3 text-xs text-zinc-500 cursor-not-allowed">
-                  <svg class="w-4 h-4 text-zinc-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
+                  </svg><span>Bật tín hiệu của Google</span></div>
+                <div class="flex items-center gap-3 text-xs text-zinc-500"><svg class="w-4 h-4 text-zinc-400"
+                    fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round"
                       d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
-                  </svg>
-                  <span>Tạo đối tượng</span>
-                </div>
-
-                <!-- Khóa 3 -->
-                <div class="flex items-center gap-3 text-xs text-zinc-500 cursor-not-allowed">
-                  <svg class="w-4 h-4 text-zinc-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
-                  </svg>
-                  <span>Bật tính năng đo lường nâng cao</span>
-                </div>
-
-              </div>
-              <!-- MỤC PHỤ Ở ĐÁY: VIỆC CẦN LÀM ĐÃ HOÀN THÀNH (2) -->
-              <div class="pt-3">
-                <button
-                  class="inline-flex items-center gap-2 text-xs text-zinc-700 hover:text-zinc-950 font-normal cursor-pointer transition">
-                  <svg class="w-3.5 h-3.5 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2.2"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                  </svg>
-                  <span class="underline underline-offset-4 decoration-zinc-400">Việc cần làm đã hoàn thành</span>
-                  <span>(2)</span>
-                </button>
+                  </svg><span>Tạo đối tượng</span></div>
               </div>
             </div>
           </div>
 
-          <!-- Mục 2: Kết nối các tài khoản -->
-          <div class="bg-white border border-zinc-200 rounded-lg shadow-2xs overflow-hidden transition">
-            <button id="accordionHeaderBtn"
-              class="w-full px-6 py-4 flex items-center justify-between hover:bg-zinc-50/70 transition cursor-pointer select-none">
-              <span class="text-base font-medium text-zinc-900">Kết nối tài khoản</span>
-
+          <!-- ================= 2. KẾT NỐI CÁC TÀI KHOẢN ================= -->
+          <div id="section-connect"
+            class="accordion-card scroll-mt-14 bg-white border border-zinc-200 rounded-lg shadow-2xs overflow-hidden transition">
+            <button type="button"
+              class="accordion-header w-full px-6 py-4 flex items-center justify-between hover:bg-zinc-50/70 transition cursor-pointer select-none">
+              <span class="text-sm font-medium text-zinc-900">Kết nối các tài khoản</span>
               <div class="flex items-center gap-4">
-                <span class="px-2.5 py-1 bg-blue-50 text-[#1a73e8] text-xs font-medium rounded-full">
-                  Còn 1 / 1 nhiệm vụ
-                </span>
-                <!-- Mũi tên: mặc định quay lên khi đang mở -->
-                <svg id="accordionArrow" class="w-4 h-4 text-zinc-600 transition-transform duration-300" fill="none"
-                  stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                </svg>
-              </div>
-            </button>
-
-            <!-- 2. NỘI DUNG XỔ XUỐNG KHI MỞ -->
-            <div id="accordionBody" class="px-6 pb-6 pt-1 space-y-4">
-
-              <!-- Đoạn mô tả đầu nhóm -->
-              <p class="text-xs text-zinc-600">
-                Kết nối các Tài khoản Google khác với Analytics để có một chế độ xem hợp nhất về hiệu suất và thông tin
-                chi tiết chuyên sâu hơn về hành trình của khách hàng
-              </p>
-
-              <!-- CARD NHIỆM VỤ ĐANG MỞ (ACTIVE TASK) -->
-              <div class="bg-zinc-100/80 border border-zinc-200/80 rounded-xl p-5 space-y-4">
-
-                <!-- Tên nhiệm vụ + Icon tròn viền đen -->
-                <div class="flex items-center gap-3">
-                  <div class="w-5 h-5 rounded-full border-2 border-zinc-800 flex-shrink-0"></div>
-                  <h3 class="text-xs font-semibold text-zinc-900">Liên kết với Google Ads </h3>
-                </div>
-
-                <!-- Mô tả chi tiết & link -->
-                <p class="text-xs text-zinc-600 leading-relaxed pl-8">
-                  Liên kết với tài khoản Google Ads của bạn để xem dữ liệu về chiến dịch, quảng cáo và từ khóa trong báo
-                  cáo của Analytics
-                  để
-                  các báo cáo có thể bắt đầu điền sẵn dữ liệu.
-                  <a href="#" class="text-[#1a73e8] hover:underline inline-flex items-center gap-0.5">
-                    Tìm hiểu thêm về cách thiết lập một tài sản
-                    <svg class="w-3.5 h-3.5 text-zinc-500 inline ml-0.5" fill="none" stroke="currentColor"
-                      stroke-width="2" viewBox="0 0 24 24">
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round" />
-                      <line x1="12" y1="17" x2="12.01" y2="17" stroke-linecap="round" stroke-width="2.5" />
-                    </svg>
-                  </a>
-                </p>
-
-                <!-- Hàng nút hành động & đánh giá -->
-                <div class="flex flex-wrap items-center justify-between gap-4 pt-1 pl-8">
-                  <!-- Cụm nút bên trái -->
-                  <div class="flex items-center gap-2.5">
-                    <!-- Nút Hành động xanh dương có icon Check -->
-                    <button
-                      class="px-4 py-2 bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium rounded shadow-xs inline-flex items-center gap-1.5 transition cursor-pointer">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                      </svg>
-                      <span>Hành động</span>
-                    </button>
-
-                    <!-- Nút Xem video -->
-                    <button
-                      class="px-3.5 py-2 bg-white hover:bg-zinc-50 border border-zinc-300 text-[#1a73e8] text-xs font-medium rounded shadow-2xs inline-flex items-center gap-2 transition cursor-pointer">
-                      <svg class="w-4 h-4 text-[#1a73e8]" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                          d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-                      </svg>
-                      <span>Xem video</span>
-                    </button>
-                  </div>
-
-                  <!-- Cụm đánh giá bên phải: Is this helpful? 👍 👎 -->
-                  <div class="flex items-center gap-2 text-xs text-zinc-500">
-                    <span>Is this helpful?</span>
-                    <!-- Nút Like -->
-                    <button class="p-1 hover:text-zinc-800 transition cursor-pointer" title="Hữu ích">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M6.633 10.25c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75a.75.75 0 0 1 .75-.75 2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H13.5a4.5 4.5 0 0 1-1.423-.23l-3.114-1.04a4.5 4.5 0 0 0-1.423-.23H6.633" />
-                      </svg>
-                    </button>
-                    <!-- Nút Dislike -->
-                    <button class="p-1 hover:text-zinc-800 transition cursor-pointer" title="Không hữu ích">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M7.5 15h2.25m8.024-9.75c.806 0 1.533.446 2.031 1.08a9.041 9.041 0 0 0 2.861 2.4c.723.384 1.35.956 1.653 1.715.207.518.322 1.083.322 1.672v.632a.75.75 0 0 1-.75.75 2.25 2.25 0 0 1-2.25-2.25c0-1.152-.26-2.243-.723-3.218-.266-.558.107-1.282.725-1.282h3.126c1.026 0 1.945-.694 2.054-1.715.045-.422.068-.85.068-1.285a11.95 11.95 0 0 0-2.649-7.521c-.388-.482-.987-.729-1.605-.729H13.5a4.5 4.5 0 0 0-1.423.23l-3.114 1.04a4.5 4.5 0 0 1-1.423.23H7.5" />
-                      </svg>
-                    </button>
-                  </div>
-
-                </div>
-
-              </div>
-              <!-- MỤC PHỤ Ở ĐÁY: VIỆC CẦN LÀM ĐÃ HOÀN THÀNH (2) -->
-              <div class="pt-3">
-                <button
-                  class="inline-flex items-center gap-2 text-xs text-zinc-700 hover:text-zinc-950 font-normal cursor-pointer transition">
-                  <svg class="w-3.5 h-3.5 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2.2"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                  </svg>
-                  <span class="underline underline-offset-4 decoration-zinc-400">Việc cần làm đã hoàn thành</span>
-                  <span>(0)</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Mục 3: Cải thiện báo cáo -->
-          <div class="bg-white border border-zinc-200 rounded-lg shadow-2xs overflow-hidden transition">
-            <button id="accordionHeaderBtn"
-              class="w-full px-6 py-4 flex items-center justify-between hover:bg-zinc-50/70 transition cursor-pointer select-none">
-              <span class="text-base font-medium text-zinc-900">Cải thiện báo cáo</span>
-
-              <div class="flex items-center gap-4">
-                <span class="px-2.5 py-1 bg-blue-50 text-[#1a73e8] text-xs font-medium rounded-full">
-                  Còn 2 / 2 nhiệm vụ
-                </span>
-                <!-- Mũi tên: mặc định quay lên khi đang mở -->
-                <svg id="accordionArrow" class="w-4 h-4 text-zinc-600 transition-transform duration-300" fill="none"
-                  stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                </svg>
-              </div>
-            </button>
-
-            <!-- 2. NỘI DUNG XỔ XUỐNG KHI MỞ -->
-            <div id="accordionBody" class="px-6 pb-6 pt-1 space-y-4">
-
-              <!-- Đoạn mô tả đầu nhóm -->
-              <p class="text-xs text-zinc-600">
-                Làm cho báo cáo chi tiết hơn và thiết thực hơn bằng cách sử dụng các chế độ cài đặt để hiểu rõ hơn về
-                hành vi của người dùng và nhắm mục tiêu hoạt động tiếp thị đến người dùng phù hợp
-              </p>
-
-              <!-- CARD NHIỆM VỤ ĐANG MỞ (ACTIVE TASK) -->
-              <div class="bg-zinc-100/80 border border-zinc-200/80 rounded-xl p-5 space-y-4">
-
-                <!-- Tên nhiệm vụ + Icon tròn viền đen -->
-                <div class="flex items-center gap-3">
-                  <div class="w-5 h-5 rounded-full border-2 border-zinc-800 flex-shrink-0"></div>
-                  <h3 class="text-xs font-semibold text-zinc-900">Tạo thông tin chi tiết tùy chỉnh </h3>
-                </div>
-
-                <!-- Mô tả chi tiết & link -->
-                <p class="text-xs text-zinc-600 leading-relaxed pl-8">
-                  Nhận thông báo tự động về các xu hướng quan trọng liên quan đến dữ liệu và những thay đổi đối với chỉ
-                  số của bạn.
-                  <a href="#" class="text-[#1a73e8] hover:underline inline-flex items-center gap-0.5">
-                    Tìm hiểu thêm về thông tin chi tiết tuỳ chỉnh
-                    <svg class="w-3.5 h-3.5 text-zinc-500 inline ml-0.5" fill="none" stroke="currentColor"
-                      stroke-width="2" viewBox="0 0 24 24">
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round" />
-                      <line x1="12" y1="17" x2="12.01" y2="17" stroke-linecap="round" stroke-width="2.5" />
-                    </svg>
-                  </a>
-                </p>
-
-                <!-- Hàng nút hành động & đánh giá -->
-                <div class="flex flex-wrap items-center justify-between gap-4 pt-1 pl-8">
-                  <!-- Cụm nút bên trái -->
-                  <div class="flex items-center gap-2.5">
-                    <!-- Nút Hành động xanh dương có icon Check -->
-                    <button
-                      class="px-4 py-2 bg-[#1a73e8] hover:bg-blue-700 text-white text-xs font-medium rounded shadow-xs inline-flex items-center gap-1.5 transition cursor-pointer">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                      </svg>
-                      <span>Tạo đối tượng<span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- MỤC PHỤ Ở ĐÁY: VIỆC CẦN LÀM ĐÃ HOÀN THÀNH (0) -->
-              <div class="pt-3">
-                <button
-                  class="inline-flex items-center gap-2 text-xs text-zinc-700 hover:text-zinc-950 font-normal cursor-pointer transition">
-                  <svg class="w-3.5 h-3.5 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2.2"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                  </svg>
-                  <span class="underline underline-offset-4 decoration-zinc-400">Việc cần làm đã hoàn thành</span>
-                  <span>(0)</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Mục 4: Tối ưu hoá hoạt động quảng cáo -->
-          <div class="bg-white border border-zinc-200 rounded-lg shadow-2xs overflow-hidden transition">
-            <button
-              class="accordion-toggle w-full p-4 flex items-center justify-between hover:bg-zinc-50 cursor-pointer">
-              <span class="text-sm font-medium text-zinc-800">Tối ưu hoá hoạt động quảng cáo</span>
-              <div class="flex items-center gap-3">
                 <span class="px-2.5 py-1 bg-blue-50 text-[#1a73e8] text-xs font-medium rounded-full">Còn 1 / 1 nhiệm
                   vụ</span>
-                <svg class="w-4 h-4 text-zinc-400 transition-transform duration-200" fill="none" stroke="currentColor"
-                  stroke-width="2" viewBox="0 0 24 24">
+                <svg class="accordion-arrow w-4 h-4 text-zinc-600 transition-transform duration-300" fill="none"
+                  stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
               </div>
             </button>
+            <div class="accordion-body hidden px-6 pb-6 pt-1 space-y-4">
+              <p class="text-xs text-zinc-600">Kết nối Google Analytics với các nền tảng khác để nâng cao khả năng phân
+                tích và tích hợp chiến dịch.</p>
+              <div class="bg-[#f8f9fa] border border-zinc-200/80 rounded-xl p-5 space-y-3.5">
+                <div class="flex items-center gap-3">
+                  <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  </svg>
+                  <h3 class="text-xs font-semibold text-zinc-900">Liên kết tài khoản Google Ads</h3>
+                </div>
+                <p class="text-xs text-zinc-600 pl-7">Chia sẻ dữ liệu chuyển đổi và danh sách đối tượng giữa các nền
+                  tảng.</p>
+              </div>
+            </div>
           </div>
 
-          <!-- Mục 5: Thêm dữ liệu của bên thứ nhất -->
-          <div class="bg-white border border-zinc-200 rounded-lg shadow-2xs overflow-hidden transition">
-            <button
-              class="accordion-toggle w-full p-4 flex items-center justify-between hover:bg-zinc-50 cursor-pointer">
-              <span class="text-sm font-medium text-zinc-800">Thêm dữ liệu của bên thứ nhất</span>
-              <div class="flex items-center gap-3">
+          <!-- ================= 3. CẢI THIỆN BÁO CÁO ================= -->
+          <div id="section-report"
+            class="accordion-card scroll-mt-14 bg-white border border-zinc-200 rounded-lg shadow-2xs overflow-hidden transition">
+            <button type="button"
+              class="accordion-header w-full px-6 py-4 flex items-center justify-between hover:bg-zinc-50/70 transition cursor-pointer select-none">
+              <span class="text-sm font-medium text-zinc-900">Cải thiện báo cáo</span>
+              <div class="flex items-center gap-4">
+                <span class="px-2.5 py-1 bg-blue-50 text-[#1a73e8] text-xs font-medium rounded-full">Còn 2 / 2 nhiệm
+                  vụ</span>
+                <svg class="accordion-arrow w-4 h-4 text-zinc-600 transition-transform duration-300" fill="none"
+                  stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+              </div>
+            </button>
+            <div class="accordion-body hidden px-6 pb-6 pt-1 space-y-4">
+              <p class="text-xs text-zinc-600">Làm cho báo cáo chi tiết hơn và thiết thực hơn bằng cách sử dụng các chế
+                độ cài đặt nâng cao.</p>
+
+              <!-- Sub-task 1 -->
+              <div class="sub-item">
+                <div
+                  class="sub-collapsed hidden py-2 flex items-center gap-3 cursor-pointer text-zinc-600 hover:text-zinc-900 transition">
+                  <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  </svg>
+                  <span class="text-xs font-medium">Tạo thông tin chi tiết tuỳ chỉnh</span>
+                </div>
+                <div class="sub-expanded bg-[#f8f9fa] border border-zinc-200/80 rounded-xl p-5 space-y-3.5">
+                  <div class="flex items-center gap-3">
+                    <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2"
+                      viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                    </svg>
+                    <h3 class="text-xs font-semibold text-zinc-900">Tạo thông tin chi tiết tùy chỉnh</h3>
+                  </div>
+                  <p class="text-xs text-zinc-600 pl-7">Nhận thông báo tự động về các xu hướng quan trọng liên quan đến
+                    dữ liệu.</p>
+                  <div class="flex items-center gap-2.5 pt-1 pl-7">
+                    <button disabled
+                      class="px-4 py-1.5 bg-[#e8eaed] text-zinc-400 text-xs font-medium rounded inline-flex items-center gap-1.5 cursor-not-allowed">
+                      <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2.5"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                      </svg>
+                      <span>Hành động</span>
+                    </button>
+                    <button
+                      class="px-3.5 py-1.5 bg-white border border-zinc-300 text-[#1a73e8] text-xs font-medium rounded shadow-2xs">Xem
+                      video</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sub-task 2 -->
+              <div class="sub-item">
+                <div
+                  class="sub-collapsed py-2 flex items-center gap-3 cursor-pointer text-zinc-600 hover:text-zinc-900 transition">
+                  <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  </svg>
+                  <span class="text-xs font-medium">Tạo đối tượng</span>
+                </div>
+                <div class="sub-expanded hidden bg-[#f8f9fa] border border-zinc-200/80 rounded-xl p-5 space-y-3.5">
+                  <div class="flex items-center gap-3">
+                    <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2"
+                      viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                    </svg>
+                    <h3 class="text-xs font-semibold text-zinc-900">Tạo đối tượng</h3>
+                  </div>
+                  <p class="text-xs text-zinc-600 pl-7">Phân nhóm người dùng dựa trên hành vi và thông tin nhân khẩu
+                    học.</p>
+                  <div class="flex items-center gap-2.5 pt-1 pl-7">
+                    <button disabled
+                      class="px-4 py-1.5 bg-[#e8eaed] text-zinc-400 text-xs font-medium rounded inline-flex items-center gap-1.5 cursor-not-allowed">
+                      <svg class="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2.5"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                      </svg>
+                      <span>Hành động</span>
+                    </button>
+                    <button
+                      class="px-3.5 py-1.5 bg-white border border-zinc-300 text-[#1a73e8] text-xs font-medium rounded shadow-2xs">Xem
+                      video</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= 4. TỐI ƯU HOÁ HOẠT ĐỘNG QUẢNG CÁO ================= -->
+          <div id="section-ads"
+            class="accordion-card scroll-mt-14 bg-white border border-zinc-200 rounded-lg shadow-2xs overflow-hidden transition">
+            <button type="button"
+              class="accordion-header w-full px-6 py-4 flex items-center justify-between hover:bg-zinc-50/70 transition cursor-pointer select-none">
+              <span class="text-sm font-medium text-zinc-900">Tối ưu hoá hoạt động quảng cáo</span>
+              <div class="flex items-center gap-4">
+                <span class="px-2.5 py-1 bg-blue-50 text-[#1a73e8] text-xs font-medium rounded-full">Còn 1 / 1 nhiệm
+                  vụ</span>
+                <svg class="accordion-arrow w-4 h-4 text-zinc-600 transition-transform duration-300" fill="none"
+                  stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+              </div>
+            </button>
+            <div class="accordion-body hidden px-6 pb-6 pt-1 space-y-4">
+              <p class="text-xs text-zinc-600">Tiếp cận đúng người dùng vào đúng thời điểm bằng cách kết hợp Google Ads
+                với dữ liệu Analytics.</p>
+              <div class="bg-[#f8f9fa] border border-zinc-200/80 rounded-xl p-5 space-y-3.5">
+                <div class="flex items-center gap-3">
+                  <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  </svg>
+                  <h3 class="text-xs font-semibold text-zinc-900">Liên kết với Google Ads</h3>
+                </div>
+                <p class="text-xs text-zinc-600 pl-7">Tăng số lượt chuyển đổi trên Google Ads bằng các tín hiệu phong
+                  phú hơn.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= 5. THÊM DỮ LIỆU CỦA BÊN THỨ NHẤT ================= -->
+          <div id="section-first-party"
+            class="accordion-card scroll-mt-14 bg-white border border-zinc-200 rounded-lg shadow-2xs overflow-hidden transition">
+            <button type="button"
+              class="accordion-header w-full px-6 py-4 flex items-center justify-between hover:bg-zinc-50/70 transition cursor-pointer select-none">
+              <span class="text-sm font-medium text-zinc-900">Thêm dữ liệu của bên thứ nhất</span>
+              <div class="flex items-center gap-4">
                 <span class="px-2.5 py-1 bg-blue-50 text-[#1a73e8] text-xs font-medium rounded-full">Còn 3 / 3 nhiệm
                   vụ</span>
-                <svg class="w-4 h-4 text-zinc-400 transition-transform duration-200" fill="none" stroke="currentColor"
-                  stroke-width="2" viewBox="0 0 24 24">
+                <svg class="accordion-arrow w-4 h-4 text-zinc-600 transition-transform duration-300" fill="none"
+                  stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
               </div>
             </button>
+            <div class="accordion-body hidden px-6 pb-6 pt-1 space-y-4">
+              <p class="text-xs text-zinc-600">Nhập dữ liệu khách hàng bên thứ nhất để bổ sung góc nhìn toàn diện cho
+                các báo cáo.</p>
+              <div class="bg-[#f8f9fa] border border-zinc-200/80 rounded-xl p-5 space-y-3.5">
+                <div class="flex items-center gap-3">
+                  <svg class="w-4 h-4 text-zinc-500" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  </svg>
+                  <h3 class="text-xs font-semibold text-zinc-900">Thiết lập tính năng Đo lường nâng cao</h3>
+                </div>
+                <p class="text-xs text-zinc-600 pl-7">Khai thác dữ liệu người dùng được thu thập an toàn từ chính trang
+                  web của bạn.</p>
+              </div>
+            </div>
           </div>
 
-          <!-- Mục 6: Khắc phục vấn đề về dữ liệu -->
-          <div class="bg-white border border-zinc-200 rounded-lg shadow-2xs overflow-hidden transition">
-            <button
-              class="accordion-toggle w-full p-4 flex items-center justify-between hover:bg-zinc-50 cursor-pointer">
-              <span class="text-sm font-medium text-zinc-800">Khắc phục vấn đề về dữ liệu</span>
-              <div class="flex items-center gap-3">
+          <!-- ================= 6. KHẮC PHỤC VẤN ĐỀ VỀ DỮ LIỆU (ĐANG MỞ TRONG ẢNH) ================= -->
+          <div id="section-troubleshoot"
+            class="accordion-card scroll-mt-14 bg-white border border-zinc-200 rounded-lg shadow-2xs overflow-hidden transition">
+
+            <!-- Tiêu đề (Mũi tên chỉ lên vì đang mở) -->
+            <button type="button"
+              class="accordion-header w-full px-6 py-4 flex items-center justify-between hover:bg-zinc-50/70 transition cursor-pointer select-none">
+              <span class="text-sm font-medium text-zinc-900">Khắc phục vấn đề về dữ liệu</span>
+              <div class="flex items-center gap-4">
                 <span class="text-xs text-zinc-500">Không phát hiện thấy việc cần làm nào</span>
-                <svg class="w-4 h-4 text-zinc-400 transition-transform duration-200" fill="none" stroke="currentColor"
-                  stroke-width="2" viewBox="0 0 24 24">
+                <svg class="accordion-arrow w-4 h-4 text-zinc-600 transition-transform duration-300 rotate-180"
+                  fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
               </div>
             </button>
-          </div>
 
+            <!-- Khung nội dung xổ xuống bên trong (Mặc định không có class hidden) -->
+            <div class="accordion-body px-6 pb-6 pt-1 space-y-4">
+              <p class="text-xs text-zinc-600">
+                Xác định và giải quyết các điểm khác biệt về dữ liệu cũng như các vấn đề kỹ thuật có thể ảnh hưởng đến
+                hoạt động phân tích và báo cáo của bạn
+              </p>
+
+              <!-- Khung viền nét mờ chứa hình vẽ minh họa trạng thái trống (Empty State) -->
+              <div
+                class="border border-zinc-200/80 rounded-xl py-12 px-4 flex flex-col items-center justify-center space-y-4 bg-white">
+
+                <!-- Hình vẽ SVG chính xác: Chậu cây cảnh + Đồng hồ cát + Tách trà bốc khói -->
+                <svg class="w-48 h-28 text-zinc-600" viewBox="0 0 200 120" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <!-- Đường kẻ ngang mặt bàn -->
+                  <line x1="15" y1="105" x2="185" y2="105" stroke="#5f6368" stroke-width="1.5" stroke-linecap="round" />
+
+                  <!-- 1. Chậu cây bên trái -->
+                  <path d="M40 85 L35 105 L55 105 L50 85 Z" fill="white" stroke="#5f6368" stroke-width="1.5" />
+                  <!-- Các nhánh lá -->
+                  <path d="M42 85 C32 75 30 60 40 50 C45 65 44 75 42 85 Z" fill="white" stroke="#5f6368"
+                    stroke-width="1.2" />
+                  <path d="M45 85 C45 70 55 60 62 65 C58 75 50 82 45 85 Z" fill="white" stroke="#5f6368"
+                    stroke-width="1.2" />
+                  <path d="M38 75 C25 72 20 62 26 56 C32 60 36 68 38 75 Z" fill="white" stroke="#5f6368"
+                    stroke-width="1.2" />
+
+                  <!-- 2. Đồng hồ cát ở giữa -->
+                  <!-- Nắp trên & đế dưới -->
+                  <rect x="75" y="42" width="50" height="4" rx="2" fill="#3c4043" stroke="#3c4043" stroke-width="1" />
+                  <rect x="75" y="101" width="50" height="4" rx="2" fill="#3c4043" stroke="#3c4043" stroke-width="1" />
+                  <!-- Thân thủy tinh đồng hồ cát -->
+                  <path
+                    d="M80 46 C80 68 95 72 98 74 C95 76 80 80 80 101 L120 101 C120 80 105 76 102 74 C105 72 120 68 120 46 Z"
+                    fill="none" stroke="#5f6368" stroke-width="1.5" />
+                  <!-- Cát xám ở ngăn dưới -->
+                  <path d="M86 98 C88 88 112 88 114 98 Z" fill="#bdc1c6" />
+                  <!-- Vệt phản quang thủy tinh -->
+                  <path d="M85 52 C85 62 90 66 93 68" stroke="#dadce0" stroke-width="1.5" stroke-linecap="round" />
+
+                  <!-- 3. Tách trà nhỏ bên phải -->
+                  <path d="M142 90 C142 102 158 102 158 90 Z" fill="white" stroke="#5f6368" stroke-width="1.5" />
+                  <!-- Quai tách -->
+                  <path d="M158 92 C164 92 164 98 158 100" fill="none" stroke="#5f6368" stroke-width="1.2" />
+                  <!-- Nhãn túi trà thò ra -->
+                  <path d="M146 90 L146 95 L151 95 L151 90" stroke="#5f6368" stroke-width="1" fill="none" />
+                  <!-- Làn khói bốc lên -->
+                  <path d="M147 84 C145 80 150 78 148 74" stroke="#5f6368" stroke-width="1" stroke-linecap="round"
+                    fill="none" />
+                  <path d="M153 84 C151 80 156 78 154 74" stroke="#5f6368" stroke-width="1" stroke-linecap="round"
+                    fill="none" />
+                </svg>
+
+                <p class="text-xs text-zinc-600 font-normal">Không phát hiện thấy việc cần làm nào</p>
+              </div>
+
+            </div>
+
+          </div>
           <!-- ================= D. 3 CARD HỌC VIỆN & TRỢ GIÚP Ở CUỐI ================= -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 pb-12">
 

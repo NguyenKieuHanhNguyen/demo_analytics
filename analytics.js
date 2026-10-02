@@ -142,25 +142,79 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const headerBtn = document.getElementById('accordionHeaderBtn');
-    const body = document.getElementById('accordionBody');
-    const arrow = document.getElementById('accordionArrow');
 
-    if (headerBtn && body && arrow) {
-        let isOpen = true; // Mặc định trong ảnh là đang mở
+    // 1. TỰ ĐỘNG ĐÓNG / MỞ TẤT CẢ CÁC KHỐI ACCORDION CHA
+    const accordionCards = document.querySelectorAll('.accordion-card');
 
-        headerBtn.addEventListener('click', () => {
-            isOpen = !isOpen;
+    accordionCards.forEach(card => {
+        const header = card.querySelector('.accordion-header');
+        const body = card.querySelector('.accordion-body');
+        const arrow = card.querySelector('.accordion-arrow');
 
-            if (isOpen) {
-                body.classList.remove('hidden');
-                // Mũi tên quay lên (^)
+        header.addEventListener('click', () => {
+            const isHidden = body.classList.toggle('hidden');
+            if (isHidden) {
                 arrow.classList.remove('rotate-180');
             } else {
-                body.classList.add('hidden');
-                // Mũi tên quay xuống (v)
                 arrow.classList.add('rotate-180');
             }
         });
-    }
+    });
+
+    // 2. TỰ ĐỘNG CHUYỂN ĐỔI GIỮA CÁC NHIỆM VỤ CON (SUB-TASKS) NẰM TRONG CÁC KHỐI
+    const subItems = document.querySelectorAll('.sub-item');
+
+    subItems.forEach(item => {
+        const collapsed = item.querySelector('.sub-collapsed');
+        const expanded = item.querySelector('.sub-expanded');
+
+        if (collapsed && expanded) {
+            collapsed.addEventListener('click', () => {
+                // Tìm toàn bộ anh em sub-item trong cùng 1 khối accordion cha
+                const parentCard = item.closest('.accordion-card');
+                const siblingSubItems = parentCard.querySelectorAll('.sub-item');
+
+                siblingSubItems.forEach(sib => {
+                    sib.querySelector('.sub-collapsed')?.classList.remove('hidden');
+                    sib.querySelector('.sub-expanded')?.classList.add('hidden');
+                });
+
+                // Mở sub-task vừa được bấm
+                collapsed.classList.add('hidden');
+                expanded.classList.remove('hidden');
+            });
+        }
+    });
+
+    // 3. ĐIỀU KHIỂN ĐỒNG BỘ THANH NAVBAR VỚI CÁC KHỐI THEO DATA-TARGET
+    const navTabs = document.querySelectorAll('.nav-tab');
+
+    navTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetId = tab.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+
+            // Đổi màu gạch chân xanh tab đang chọn
+            navTabs.forEach(t => {
+                t.classList.remove('text-[#1a73e8]', 'border-[#1a73e8]', 'font-semibold');
+                t.classList.add('text-zinc-600', 'border-transparent');
+            });
+            tab.classList.add('text-[#1a73e8]', 'border-[#1a73e8]', 'font-semibold');
+            tab.classList.remove('text-zinc-600', 'border-transparent');
+
+            // Cuộn mượt đến khối mục tiêu và tự động mở nội dung
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                const body = targetElement.querySelector('.accordion-body');
+                const arrow = targetElement.querySelector('.accordion-arrow');
+
+                if (body && body.classList.contains('hidden')) {
+                    body.classList.remove('hidden');
+                    if (arrow) arrow.classList.add('rotate-180');
+                }
+            }
+        });
+    });
+
 });
