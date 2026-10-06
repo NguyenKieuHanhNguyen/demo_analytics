@@ -218,3 +218,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. XỬ LÝ ĐÓNG / MỞ TẤT CẢ CÁC CÂY THƯ MỤC TRONG MENU (TREEVIEW)
+    const toggles = document.querySelectorAll('.tree-toggle');
+
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            // Tìm phần tử nội dung liền kề ngay sau nút
+            const content = toggle.nextElementSibling;
+            const arrow = toggle.querySelector('.tree-arrow');
+
+            if (content && content.classList.contains('tree-content')) {
+                const isHidden = content.classList.toggle('hidden');
+
+                if (arrow) {
+                    // Nếu là mũi tên tam giác quay ngang ▶ (M8 5v14l11-7z)
+                    if (arrow.innerHTML.includes('M8 5v14l11-7z')) {
+                        arrow.classList.toggle('rotate-90', !isHidden);
+                    } else {
+                        // Nếu là mũi tên tam giác quay xuống ▼ hoặc chevron ^
+                        arrow.classList.toggle('-rotate-90', isHidden);
+                    }
+                }
+            }
+        });
+    });
+
+    // 2. XỬ LÝ NÚT THU GỌN TOÀN BỘ SIDEBAR BÊN TRÁI
+    const toggleBtn = document.getElementById('toggleSidebarBtn');
+    const sidebar = document.getElementById('subSidebar');
+    const sidebarContent = document.getElementById('subSidebarContent');
+    const toggleArrow = document.getElementById('toggleArrowIcon');
+
+    if (toggleBtn && sidebar && sidebarContent) {
+        let isCollapsed = false;
+
+        toggleBtn.addEventListener('click', () => {
+            isCollapsed = !isCollapsed;
+
+            if (isCollapsed) {
+                sidebar.classList.remove('w-64');
+                sidebar.classList.add('w-0', 'border-r-0');
+                sidebarContent.classList.add('opacity-0', 'pointer-events-none');
+                if (toggleArrow) toggleArrow.classList.add('rotate-180');
+            } else {
+                sidebar.classList.add('w-64');
+                sidebar.classList.remove('w-0', 'border-r-0');
+                sidebarContent.classList.remove('opacity-0', 'pointer-events-none');
+                if (toggleArrow) toggleArrow.classList.remove('rotate-180');
+            }
+        });
+    }
+});

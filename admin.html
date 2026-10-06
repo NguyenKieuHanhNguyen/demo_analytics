@@ -556,7 +556,14 @@
                 </section>
 
                 <!-- KHU VỰC CÀI ĐẶT TÀI KHOẢN -->
-                <section class="bg-white rounded-lg border border-zinc-200 shadow-sm p-6">
+                <!-- TIÊU ĐỀ PHẦN -->
+                <div class="mb-6">
+                    <h2 class="text-xs font-bold tracking-wider text-zinc-500 uppercase">
+                        Cài đặt tài khoản
+                    </h2>
+                </div>
+                <section class="w-fit bg-white rounded-lg border border-zinc-200 shadow-sm p-6">
+
                     <div class="max-w-md mt-1 ">
                         <h2 class="text-base font-semibold text-zinc-900">Tài khoản</h2>
                         <p class="text-xs text-zinc-600 leading-relaxed mb-6">
@@ -565,18 +572,826 @@
 
                     </div>
 
-                    <!-- Lưới 3 Cards chọn mẫu -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
+                    <!-- Lưới 2 cột các mục cài đặt -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 pt-2">
+
+                        <!-- CỘT TRÁI -->
+                        <div class="space-y-1">
+
+                            <!-- 1. Thông tin về tài khoản -->
+                            <a href="#"
+                                class="flex items-center justify-between p-2.5 rounded-lg hover:bg-zinc-100 transition group cursor-pointer">
+                                <div class="flex items-center gap-3.5">
+                                    <!-- Icon tòa nhà -->
+                                    <svg class="w-5 h-5 text-zinc-600 group-hover:text-zinc-900 transition flex-shrink-0"
+                                        fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" />
+                                    </svg>
+                                    <span class="text-xs font-medium text-zinc-700 group-hover:text-zinc-900">Thông tin
+                                        về tài khoản</span>
+                                </div>
+                                <!-- Icon (?) -->
+                                <button type="button" class="text-zinc-500 hover:text-zinc-700 transition"
+                                    title="Trợ giúp">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke-linecap="round"
+                                            stroke-width="2.5" />
+                                    </svg>
+                                </button>
+                            </a>
+
+                            <!-- 2. Quản lý quyền truy cập vào tài khoản -->
+                            <a href="#"
+                                class="flex items-center justify-between p-2.5 rounded-lg hover:bg-zinc-100 transition group cursor-pointer">
+                                <div class="flex items-center gap-3.5">
+                                    <!-- Icon nhóm người -->
+                                    <svg class="w-5 h-5 text-zinc-600 group-hover:text-zinc-900 transition flex-shrink-0"
+                                        fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 3s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                                    </svg>
+                                    <span class="text-xs font-medium text-zinc-700 group-hover:text-zinc-900">Quản lý
+                                        quyền truy cập vào tài khoản</span>
+                                </div>
+                                <button type="button" class="text-zinc-500 hover:text-zinc-700 transition"
+                                    title="Trợ giúp">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke-linecap="round"
+                                            stroke-width="2.5" />
+                                    </svg>
+                                </button>
+                            </a>
+
+                            <!-- 3. Nhật ký thay đổi của tài khoản -->
+                            <a href="#"
+                                class="flex items-center justify-between p-2.5 rounded-lg hover:bg-zinc-100 transition group cursor-pointer">
+                                <div class="flex items-center gap-3.5">
+                                    <!-- Icon đồng hồ quay ngược -->
+                                    <svg class="w-5 h-5 text-zinc-600 group-hover:text-zinc-900 transition flex-shrink-0"
+                                        fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z" />
+                                    </svg>
+                                    <span class="text-xs font-medium text-zinc-700 group-hover:text-zinc-900">Nhật ký
+                                        thay đổi của tài khoản</span>
+                                </div>
+                                <button type="button" class="text-zinc-500 hover:text-zinc-700 transition"
+                                    title="Trợ giúp">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke-linecap="round"
+                                            stroke-width="2.5" />
+                                    </svg>
+                                </button>
+                            </a>
+
+                        </div>
+
+                        <!-- CỘT PHẢI -->
+                        <div class="space-y-1">
+
+                            <!-- 1. Nhật ký hạn mức API của dữ liệu cấp tài khoản -->
+                            <a href="#"
+                                class="flex items-center justify-between p-2.5 rounded-lg hover:bg-zinc-100 transition group cursor-pointer">
+                                <div class="flex items-center gap-3.5">
+                                    <!-- Icon hạn mức API / Diamond hub -->
+                                    <svg class="w-5 h-5 text-zinc-600 group-hover:text-zinc-900 transition flex-shrink-0"
+                                        fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2L9.5 7.5 4 10l5.5 2.5L12 18l2.5-5.5L20 10l-5.5-2.5z M19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25z M5 15l-1.25 2.75L1 19l2.75 1.25L5 23l1.25-2.75L9 19l-2.75-1.25z" />
+                                    </svg>
+                                    <span
+                                        class="text-xs font-medium text-zinc-700 group-hover:text-zinc-900 leading-snug">
+                                        Nhật ký hạn mức API của dữ liệu cấp tài khoản
+                                    </span>
+                                </div>
+                                <button type="button"
+                                    class="text-zinc-500 hover:text-zinc-700 transition flex-shrink-0 ml-2"
+                                    title="Trợ giúp">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke-linecap="round"
+                                            stroke-width="2.5" />
+                                    </svg>
+                                </button>
+                            </a>
+
+                            <!-- 2. Thùng rác -->
+                            <a href="#"
+                                class="flex items-center justify-between p-2.5 rounded-lg hover:bg-zinc-100 transition group cursor-pointer">
+                                <div class="flex items-center gap-3.5">
+                                    <!-- Icon thùng rác -->
+                                    <svg class="w-5 h-5 text-zinc-600 group-hover:text-zinc-900 transition flex-shrink-0"
+                                        fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z" />
+                                    </svg>
+                                    <span class="text-xs font-medium text-zinc-700 group-hover:text-zinc-900">Thùng
+                                        rác</span>
+                                </div>
+                                <button type="button" class="text-zinc-500 hover:text-zinc-700 transition"
+                                    title="Trợ giúp">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke-linecap="round"
+                                            stroke-width="2.5" />
+                                    </svg>
+                                </button>
+                            </a>
 
                         </div>
 
                     </div>
-                    <button
-                        class="block mx-auto mt-6 px-5 py-2.5 border border-blue-600 text-blue-600 hover:bg-blue-50 text-xs font-medium rounded-lg transition duration-150 cursor-pointer">
-                        Quay lại tổng quan nhanh về báo cáo trước đó
-                    </button>
                 </section>
+                <!-- KHU VỰC CÀI ĐẶT TÀI SẢN (BỌC TRONG 1 THẺ SECTION DUY NHẤT ĐỒNG BỘ VỚI KHỐI TRÊN) -->
+                <section class="mb-6 w-fit">
+
+                    <!-- TIÊU ĐỀ PHẦN -->
+                    <div class="mb-6">
+                        <h2 class="text-xs font-bold tracking-wider text-zinc-500 uppercase">
+                            Cài đặt tài sản
+                        </h2>
+                    </div>
+
+                    <!-- LƯỚI 2 CỘT CHỨA 4 KHỐI CARD TÁCH BIỆT -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start text-xs text-zinc-700">
+
+                        <!-- ================= CARD 1: TÀI SẢN ================= -->
+                        <div class="bg-white rounded-2xl border border-zinc-200 shadow-2xs p-6 space-y-4">
+                            <div>
+                                <h3 class="text-sm font-bold text-zinc-900">Tài sản</h3>
+                                <p class="text-xs text-zinc-500 mt-1 leading-relaxed">
+                                    Các chế độ cài đặt này ảnh hưởng đến tài sản của bạn
+                                    <a href="#" class="text-[#1a73e8] underline hover:text-blue-800">Tài sản là gì?</a>
+                                </p>
+                            </div>
+
+                            <!-- DANH SÁCH MỤC (KHÔNG CÓ ĐƯỜNG KẺ GẠCH NGANG) -->
+                            <div class="space-y-1 pt-1">
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <rect width="18" height="14" x="3" y="5" rx="2" />
+                                            <path d="M7 15h10M7 9h2" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Thông tin về tài sản</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Quản lý quyền truy cập vào
+                                            tài sản</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Nhật ký thay đổi của tài
+                                            sản</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Nhật ký hạn mức API của dữ
+                                            liệu cấp tài sản</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Thông tin chi tiết tuỳ
+                                            chỉnh</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Email gửi theo lịch</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM10.5 7.5v6m3-3h-6" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Nhật ký tìm kiếm trên
+                                            Analytics Thông minh</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                            </div>
+                        </div>
+
+                        <!-- ================= CARD 2: THU THẬP VÀ SỬA ĐỔI DỮ LIỆU ================= -->
+                        <div class="bg-white rounded-2xl border border-zinc-200 shadow-2xs p-6 space-y-4">
+                            <div>
+                                <h3 class="text-sm font-bold text-zinc-900">Thu thập và sửa đổi dữ liệu</h3>
+                                <p class="text-xs text-zinc-500 mt-1 leading-relaxed">
+                                    Các chế độ cài đặt này kiểm soát cách thu thập và sửa đổi dữ liệu
+                                </p>
+                            </div>
+
+                            <div class="space-y-1 pt-1">
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Luồng dữ liệu</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 5.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Thu thập dữ liệu</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Nhập dữ liệu</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 0 1-6.364-6.364l10.94-10.94A3 3 0 1 1 19.5 7.373L8.552 18.32a1.5 1.5 0 0 1-2.121-2.121l9.88-9.878" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Giữ lại dữ liệu</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Bộ lọc dữ liệu</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Yêu cầu xoá dữ liệu</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                                            <path d="m16.5 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Chế độ cài đặt về sự đồng
+                                            ý</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                            </div>
+                        </div>
+
+                        <!-- ================= CARD 3: HIỂN THỊ DỮ LIỆU ================= -->
+                        <div class="bg-white rounded-2xl border border-zinc-200 shadow-2xs p-6 space-y-4">
+                            <div>
+                                <h3 class="text-sm font-bold text-zinc-900">Hiển thị dữ liệu</h3>
+                                <p class="text-xs text-zinc-500 mt-1 leading-relaxed">
+                                    Các chế độ cài đặt này kiểm soát cách hiển thị dữ liệu trong báo cáo
+                                </p>
+                            </div>
+
+                            <div class="space-y-1 pt-1">
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Sự kiện</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Cài đặt mạng</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Đối tượng</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.502 49.188 49.188 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v5.018Z" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Chú thích</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125Z" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Phép so sánh</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Phân đoạn</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.431.992a7.18 7.18 0 0 1 0 .255c-.007.38.138.751.431.992l1.003.827c.424.35.534.955.26 1.431l-1.296 2.247a1.125 1.125 0 0 1-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.6 6.6 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.216.456a1.125 1.125 0 0 1-1.37-.49l-1.296-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.241.437-.613.43-.992a7.13 7.13 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.431l1.297-2.247a1.125 1.125 0 0 1 1.37-.49l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Định nghĩa tuỳ chỉnh</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Nhóm kênh</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">Thông tin nhận dạng trong
+                                            báo cáo</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center justify-between py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div class="flex items-center gap-3.5">
+                                        <svg class="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.516 0c.85.493 1.508 1.333 1.508 2.316V18" />
+                                        </svg>
+                                        <span class="group-hover:text-zinc-700 font-bold">DebugView</span>
+                                    </div>
+                                    <svg class="w-4 h-4 text-zinc-400 group-hover:text-zinc-600" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                                    </svg>
+                                </a>
+
+                            </div>
+                        </div>
+
+                        <!-- ================= CARD 4: CÁC LIÊN KẾT SẢN PHẨM ================= -->
+                        <div class="bg-white rounded-2xl border border-zinc-200 shadow-2xs p-6 space-y-4">
+                            <div>
+                                <h3 class="text-sm font-bold text-zinc-900">Các liên kết sản phẩm</h3>
+                                <p class="text-xs text-zinc-500 mt-1 leading-relaxed">
+                                    Các chế độ cài đặt này kiểm soát những sản phẩm liên kết với tài sản này
+                                </p>
+                            </div>
+
+                            <div class="space-y-1 pt-1 text-xs">
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded-full bg-amber-500 flex items-center justify-center text-white text-[9px] font-bold">
+                                        M</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Liên kết với Google AdMob</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded bg-amber-400 flex items-center justify-center text-white text-[9px] font-bold">
+                                        S</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Đường liên kết đến Google
+                                        AdSense</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center text-white text-[9px] font-bold">
+                                        A</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Đường liên kết đến Google
+                                        Ads</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded bg-teal-500 flex items-center justify-center text-white text-[9px] font-bold">
+                                        M</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Đường liên kết đến Ad
+                                        Manager</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <svg class="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z" />
+                                    </svg>
+                                    <span class="group-hover:text-zinc-700 font-bold">Đường liên kết đến BigQuery</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded bg-emerald-500 flex items-center justify-center text-white text-[9px] font-bold">
+                                        DV</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Đường liên kết đến Display & Video
+                                        360</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <svg class="w-4 h-4 text-emerald-600" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                    </svg>
+                                    <span class="group-hover:text-zinc-700 font-bold">Đường liên kết đến
+                                        Floodlight</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded bg-blue-600 flex items-center justify-center text-white text-[9px] font-bold">
+                                        G</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Liên kết với Trang doanh nghiệp
+                                        trên
+                                        Google</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded bg-blue-400 flex items-center justify-center text-white text-[9px] font-bold">
+                                        MC</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Đường liên kết đến Merchant
+                                        Center</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <svg class="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="m3 22 18-10L3 2v20z" />
+                                    </svg>
+                                    <span class="group-hover:text-zinc-700 font-bold">Đường liên kết đến Google
+                                        Play</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded bg-blue-500 flex items-center justify-center text-white text-[9px] font-bold">
+                                        SA</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Đường liên kết đến Search Ads
+                                        360</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded bg-yellow-500 flex items-center justify-center text-white text-[9px] font-bold">
+                                        SC</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Đường liên kết đến Search
+                                        Console</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded bg-amber-500 flex items-center justify-center text-white text-[9px] font-bold">
+                                        F</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Đường liên kết đến Firebase</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded-full bg-[#0081fb] flex items-center justify-center text-white text-[9px] font-bold">
+                                        ∞</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Liên kết với Meta</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded-full bg-[#e60023] flex items-center justify-center text-white text-[9px] font-bold">
+                                        P</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Đường liên kết đến
+                                        Pinterest</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded-full bg-[#ff4500] flex items-center justify-center text-white text-[9px] font-bold">
+                                        R</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Liên kết với Reddit</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded-full bg-yellow-300 flex items-center justify-center text-black text-[9px] font-bold">
+                                        👻</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Mối liên kết nhanh</span>
+                                </a>
+
+                                <a href="#"
+                                    class="flex items-center gap-3.5 py-2 px-2 hover:bg-zinc-50 rounded-lg group transition">
+                                    <div
+                                        class="w-4 h-4 rounded-full bg-black flex items-center justify-center text-white text-[9px] font-bold">
+                                        🎵</div>
+                                    <span class="group-hover:text-zinc-700 font-bold">Mối liên kết với TikTok</span>
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
 
             </main>
 
