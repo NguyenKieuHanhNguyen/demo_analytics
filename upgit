@@ -1,3 +1,4 @@
+echo upgit >> .gitignore
 git add .
 git commit -m "nội dung thay đổi"
 git push

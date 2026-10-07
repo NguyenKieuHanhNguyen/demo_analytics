@@ -464,73 +464,217 @@
           <div
             class="xl:col-span-2 bg-white rounded-lg border border-zinc-200 shadow-sm flex flex-col justify-between overflow-hidden">
 
-            <!-- Hàng Tab chỉ số -->
-            <div class="px-5 pt-4 border-b border-zinc-100 flex items-center justify-between">
-              <div class="flex items-center gap-6 overflow-x-auto">
+            <!-- HÀNG TAB CHỈ SỐ -->
+            <div class="px-4 pt-3 border-b border-zinc-100 flex items-center justify-between gap-2">
+              <div class="flex items-center gap-1 overflow-hidden flex-1">
+
                 <!-- Nút trượt trái mờ -->
-                <button class="text-zinc-300 hover:text-zinc-500 py-2">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <button id="scrollTabsLeft" type="button"
+                  class="text-zinc-300 hover:text-zinc-600 p-1.5 transition flex-shrink-0 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
 
-                <!-- Tab 1: Đang chọn (Có vạch xanh trên đỉnh) -->
-                <div class="relative py-2 cursor-pointer border-t-2 border-blue-600 -mt-[1px]">
-                  <div class="flex items-center gap-1 text-xs text-blue-600 font-medium">
-                    Số người dùng đang hoạt động
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </div>
-                  <div class="text-2xl font-normal text-zinc-900 mt-1">0</div>
-                </div>
+                <!-- Danh sách các Tab (Đã kích hoạt cuộn mượt và ẩn scrollbar) -->
+                <div id="tabsContainer"
+                  class="flex items-center gap-6 overflow-x-auto scroll-smooth py-1 px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
 
-                <!-- Tab 2: Số lượng sự kiện -->
-                <div class="py-2 cursor-pointer hover:opacity-80">
-                  <div class="flex items-center gap-1 text-xs text-zinc-600 font-medium">
-                    Số lượng sự kiện
-                    <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
-                      viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </div>
-                  <div class="text-2xl font-normal text-zinc-900 mt-1">0</div>
-                </div>
+                  <!-- Tab 1: Đang chọn (Có vạch xanh trên đỉnh & Popup dropdown) -->
+                  <div class="relative tab-item flex-shrink-0">
 
-                <!-- Tab 3: Sự kiện quan trọng -->
-                <div class="py-2 cursor-pointer hover:opacity-80">
-                  <div class="flex items-center gap-1 text-xs text-zinc-600 font-medium">
-                    Sự kiện quan trọng
-                    <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
-                      viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                    </svg>
+                    <!-- 1. NÚT BẤM -->
+                    <button id="metricDropdownBtn" type="button"
+                      class="app-popup fixed-popup hidden fixed w-[480px] bg-white border border-zinc-200/90 rounded-xl shadow-2xl z-[9999] overflow-hidden text-xs text-zinc-700 select-none">
+                      <div class="flex items-center gap-1 text-xs text-blue-600 font-medium">
+                        <span>Số người dùng đang hoạt động</span>
+                        <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                          <path d="M7 10l5 5 5-5z" />
+                        </svg>
+                      </div>
+                      <div class="text-2xl font-normal text-zinc-900 mt-1">0</div>
+                    </button>
+
+                    <!-- 2. POPUP MENU (DÙNG absolute top-full left-0 ĐỂ TỰ BÁM CHẶT DƯỚI NÚT) -->
+                    <div id="metricDropdownMenu"
+                      class="app-popup hidden absolute top-full left-0 mt-1 w-[480px] bg-white border border-zinc-200/90 rounded-xl shadow-2xl z-[9999] overflow-hidden text-xs text-zinc-700 select-none">
+
+                      <!-- Thanh tìm kiếm -->
+                      <div class="px-3 py-2.5 border-b border-zinc-200 flex items-center gap-2.5 bg-white">
+                        <svg class="w-4 h-4 text-zinc-500 flex-shrink-0" fill="none" stroke="currentColor"
+                          stroke-width="2" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                        <input type="text" placeholder="Tìm kiếm mục"
+                          class="w-full text-xs text-zinc-800 bg-transparent border-none outline-none placeholder:text-zinc-400" />
+                      </div>
+
+                      <!-- Nội dung 2 cột -->
+                      <div class="flex h-[340px]">
+                        <!-- Cột trái: Danh mục -->
+                        <div class="w-[145px] border-r border-zinc-200 py-1 overflow-y-auto [scrollbar-width:none]">
+                          <button type="button"
+                            class="w-full px-3 py-2 text-left bg-[#e8f0fe] text-zinc-900 font-medium flex items-center justify-between group transition">
+                            <span>Đề xuất</span>
+                            <svg class="w-2.5 h-2.5 text-zinc-600 fill-current" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </button>
+                          <button type="button"
+                            class="w-full px-3 py-2 text-left hover:bg-zinc-50 text-zinc-700 flex items-center justify-between group transition">
+                            <span>Doanh thu</span>
+                            <svg class="w-2.5 h-2.5 text-zinc-400 fill-current" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </button>
+                          <button type="button"
+                            class="w-full px-3 py-2 text-left hover:bg-zinc-50 text-zinc-700 flex items-center justify-between group transition">
+                            <span>Người dùng</span>
+                            <svg class="w-2.5 h-2.5 text-zinc-400 fill-current" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </button>
+                          <button type="button"
+                            class="w-full px-3 py-2 text-left hover:bg-zinc-50 text-zinc-700 flex items-center justify-between group transition">
+                            <span>Phiên hoạt động</span>
+                            <svg class="w-2.5 h-2.5 text-zinc-400 fill-current" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </button>
+                          <button type="button"
+                            class="w-full px-3 py-2 text-left hover:bg-zinc-50 text-zinc-700 flex items-center justify-between group transition">
+                            <span>Sự kiện</span>
+                            <svg class="w-2.5 h-2.5 text-zinc-400 fill-current" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </button>
+                          <button type="button"
+                            class="w-full px-3 py-2 text-left hover:bg-zinc-50 text-zinc-700 flex items-center justify-between group transition">
+                            <span>Thương mại điện tử</span>
+                            <svg class="w-2.5 h-2.5 text-zinc-400 fill-current" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </button>
+                          <button type="button"
+                            class="w-full px-3 py-2 text-left hover:bg-zinc-50 text-zinc-700 flex items-center justify-between group transition">
+                            <span>Trang/màn hình</span>
+                            <svg class="w-2.5 h-2.5 text-zinc-400 fill-current" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </button>
+                        </div>
+
+                        <!-- Cột phải: Danh sách chi tiết -->
+                        <div class="flex-1 overflow-y-auto [scrollbar-width:thin] text-zinc-800">
+                          <button type="button"
+                            class="w-full px-4 py-2 bg-[#e8f0fe] text-zinc-900 font-medium flex items-center gap-1.5 hover:bg-blue-100 transition text-left">
+                            <span>Chọn giúp tôi</span>
+                            <svg class="w-3.5 h-3.5 text-zinc-600 fill-current" viewBox="0 0 24 24">
+                              <path
+                                d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z" />
+                            </svg>
+                          </button>
+
+                          <div class="py-1">
+                            <div class="px-4 py-2 hover:bg-zinc-50 cursor-pointer transition">
+                              <span class="border-b border-dashed border-zinc-400">Phiên</span>
+                            </div>
+                            <div class="px-4 py-2 hover:bg-zinc-50 cursor-pointer transition">
+                              <span class="border-b border-dashed border-zinc-400">Số lượng sự kiện</span>
+                            </div>
+                            <div class="px-4 py-2 hover:bg-zinc-50 cursor-pointer transition">
+                              <span class="border-b border-dashed border-zinc-400">Số lượt xem</span>
+                            </div>
+                            <div class="px-4 py-2 hover:bg-zinc-50 cursor-pointer transition">
+                              <span class="border-b border-dashed border-zinc-400">Số người dùng đang hoạt động</span>
+                            </div>
+                            <div class="px-4 py-2 hover:bg-zinc-50 cursor-pointer transition">
+                              <span class="border-b border-dashed border-zinc-400">Số người dùng mới</span>
+                            </div>
+                            <div class="px-4 py-2 hover:bg-zinc-50 cursor-pointer transition">
+                              <span class="border-b border-dashed border-zinc-400">Số phiên tương tác</span>
+                            </div>
+                            <div class="px-4 py-2 hover:bg-zinc-50 cursor-pointer transition">
+                              <span class="border-b border-dashed border-zinc-400">Sự kiện quan trọng</span>
+                            </div>
+                            <div class="px-4 py-2 hover:bg-zinc-50 cursor-pointer transition">
+                              <span class="border-b border-dashed border-zinc-400">Thời gian tương tác trung bình trên
+                                mỗi người dùng đang hoạt động</span>
+                            </div>
+                            <div class="px-4 py-2 hover:bg-zinc-50 cursor-pointer transition">
+                              <span class="border-b border-dashed border-zinc-400">Thời gian tương tác trung bình/phiên
+                                hoạt động</span>
+                            </div>
+                            <div class="px-4 py-2 hover:bg-zinc-50 cursor-pointer transition">
+                              <span class="border-b border-dashed border-zinc-400">Tỷ lệ tương tác</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
                   </div>
-                  <div class="text-2xl font-normal text-zinc-900 mt-1">0</div>
+
+                  <!-- Tab 2: Số lượng sự kiện -->
+                  <div class="tab-item flex-shrink-0 relative py-1.5 cursor-pointer hover:opacity-80">
+                    <div class="flex items-center gap-1 text-xs text-zinc-600 font-medium">
+                      <span>Số lượng sự kiện</span>
+                      <svg class="w-3 h-3 fill-current text-zinc-400" viewBox="0 0 24 24">
+                        <path d="M7 10l5 5 5-5z" />
+                      </svg>
+                    </div>
+                    <div class="text-2xl font-normal text-zinc-900 mt-1">0</div>
+                  </div>
+
+                  <!-- Tab 3: Sự kiện quan trọng -->
+                  <div class="tab-item flex-shrink-0 relative py-1.5 cursor-pointer hover:opacity-80">
+                    <div class="flex items-center gap-1 text-xs text-zinc-600 font-medium">
+                      <span>Sự kiện quan trọng</span>
+                      <svg class="w-3 h-3 fill-current text-zinc-400" viewBox="0 0 24 24">
+                        <path d="M7 10l5 5 5-5z" />
+                      </svg>
+                    </div>
+                    <div class="text-2xl font-normal text-zinc-900 mt-1">0</div>
+                  </div>
+
+                  <!-- Tab 4: Số lượt xem -->
+                  <div class="tab-item flex-shrink-0 relative py-1.5 cursor-pointer hover:opacity-80">
+                    <div class="flex items-center gap-1 text-xs text-zinc-600 font-medium">
+                      <span>Số lượt xem</span>
+                      <svg class="w-3 h-3 fill-current text-zinc-400" viewBox="0 0 24 24">
+                        <path d="M7 10l5 5 5-5z" />
+                      </svg>
+                    </div>
+                    <div class="text-2xl font-normal text-zinc-900 mt-1">0</div>
+                  </div>
+
                 </div>
 
                 <!-- Nút trượt phải -->
-                <button class="text-zinc-600 hover:text-zinc-900 py-2">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <button id="scrollTabsRight" type="button"
+                  class="text-zinc-600 hover:text-zinc-900 p-1.5 transition flex-shrink-0 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                   </svg>
                 </button>
               </div>
 
               <!-- Icon huy chương & tick trạng thái góc phải -->
-              <div class="flex items-center gap-2 text-zinc-400">
-                <button class="hover:text-zinc-600" title="Thông tin">
-                  <svg class="w-4 h-4 text-zinc-300" fill="currentColor" viewBox="0 0 24 24">
+              <div class="flex items-center gap-2 text-zinc-400 flex-shrink-0 pl-2">
+                <button type="button" class="hover:text-zinc-600 cursor-pointer" title="Thông tin">
+                  <svg class="w-4 h-4 text-zinc-400" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14h-2v-4h2zm0-6h-2V8h2z" />
                   </svg>
                 </button>
                 <div
-                  class="w-4 h-4 rounded-full border border-emerald-500 text-emerald-500 flex items-center justify-center text-[10px]">
-                  ✓</div>
+                  class="w-4 h-4 rounded-full border border-emerald-500 text-emerald-500 flex items-center justify-center text-[10px] font-bold">
+                  ✓
+                </div>
               </div>
             </div>
 
-            <!-- Vùng biểu đồ (Kèm Tooltip ngày 20 thg 9) -->
+            <!-- VÙNG BIỂU ĐỒ (KÈM TOOLTIP NGÀY 20 THG 9) -->
             <div class="p-6 relative min-h-[220px] flex flex-col justify-end">
               <!-- Các đường lưới kẻ mờ nằm ngang -->
               <div class="absolute inset-0 px-6 py-6 flex flex-col justify-between pointer-events-none opacity-40">
@@ -570,9 +714,9 @@
               </div>
             </div>
 
-            <!-- Chân Card: Chọn khoảng ngày & Link xem báo cáo -->
+            <!-- CHÂN CARD: KHOẢNG NGÀY & LINK BÁO CÁO -->
             <div class="px-5 py-3 border-t border-zinc-100 flex items-center justify-between text-xs bg-white">
-              <button class="flex items-center gap-1 text-zinc-600 hover:text-zinc-900">
+              <button type="button" class="flex items-center gap-1 text-zinc-600 hover:text-zinc-900 cursor-pointer">
                 <span>7 ngày trước</span>
                 <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
                   viewBox="0 0 24 24">
@@ -678,7 +822,7 @@
                 web, ứng dụng di động của bạn hoặc cả hai. Hãy thiết lập tài sản để có thể thu thập dữ liệu, đo lường
                 hoạt động và làm nhiều việc khác.</p>
               <div class="mt-6 flex justify-end">
-                <a href="#" class="text-xs text-blue-600 hover:text-blue-700 font-medium">
+                <a href="task.html" class="text-xs text-blue-600 hover:text-blue-700 font-medium">
                   Chuyển đến Tasks
                 </a>
               </div>

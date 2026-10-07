@@ -1,38 +1,32 @@
 // ================= HÀM QUẢN LÝ POPUP DÙNG CHUNG =================
 /**
  * Thiết lập logic đóng/mở cho một cặp Nút bấm và Popup tương ứng
- * @param {string} triggerBtnId - ID của nút bấm mở popup
- * @param {string} popupId - ID của khung popup cần hiển thị
+ * @param {string} triggerBtnId ID của nút bấm mở popup
+ * @param {string} popupId ID của khung popup cần hiển thị
  */
+// ================= HÀM QUẢN LÝ POPUP DÙNG CHUNG =================
 function setupDropdown(triggerBtnId, popupId) {
-    // Đổi tên biến chứa element để không bị trùng với tham số truyền vào
     const triggerBtn = document.getElementById(triggerBtnId);
     const popup = document.getElementById(popupId);
 
-    // Nếu không tìm thấy nút hoặc popup thì dừng
     if (!triggerBtn || !popup) return;
 
-    // Bấm vào nút: Đóng tất cả popup khác và bật/tắt popup hiện tại
     triggerBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); // Thêm tham số 'e' để chặn nổi bọt sự kiện
+        e.stopPropagation();
 
-        // 1. Đóng tất cả các popup khác đang mở trên màn hình
         document.querySelectorAll('.app-popup').forEach((el) => {
             if (el !== popup) {
                 el.classList.add('hidden');
             }
         });
 
-        // 2. Bật / Tắt popup của nút này
         popup.classList.toggle('hidden');
     });
 
-    // Ngăn sự kiện click bên trong nội dung popup làm đóng nhầm popup
     popup.addEventListener('click', (e) => {
         e.stopPropagation();
     });
 }
-
 // Khi người dùng bấm ra bất kỳ vùng trống nào ngoài màn hình -> Tự động đóng tất cả popup
 document.addEventListener('click', () => {
     document.querySelectorAll('.app-popup').forEach((popup) => {
@@ -40,15 +34,18 @@ document.addEventListener('click', () => {
     });
 });
 
-// ================= KHỞI TẠO =================
-// Chạy hàm setupDropdown sau khi DOM đã tải xong
+// ================= KHỞI TẠO POPUP =================
 document.addEventListener('DOMContentLoaded', () => {
     setupDropdown('accountBtn', 'accountPopup');
-    setupDropdown('appsBtn', 'appsPopup');       // Popup 9 chấm Google Apps
-    setupDropdown('helpBtn', 'helpPopup');       // Popup Trợ giúp (?)
-    setupDropdown('profileBtn', 'profilePopup'); // Popup Tài khoản
+    setupDropdown('appsBtn', 'appsPopup');           // Popup 9 chấm Google Apps
+    setupDropdown('helpBtn', 'helpPopup');           // Popup Trợ giúp (?)
+    setupDropdown('profileBtn', 'profilePopup');     // Popup Tài khoản
+
+    // GỌI THÊM POPUP CHỈ SỐ Ở ĐÂY:
+    setupDropdown('metricDropdownBtn', 'metricDropdownMenu');
 });
 
+// ================= SIDEBAR TRÁI CẤP 2 (SUB-SIDEBAR) =================
 const subSidebar = document.getElementById('subSidebar');
 const subSidebarContent = document.getElementById('subSidebarContent');
 const toggleBtn = document.getElementById('toggleSidebarBtn');
@@ -62,29 +59,20 @@ if (toggleBtn && subSidebar && subSidebarContent && toggleArrow) {
         isCollapsed = !isCollapsed;
 
         if (isCollapsed) {
-            // 1. Thu chiều rộng aside về 0 và gỡ border-r để phẳng hoàn toàn
             subSidebar.classList.remove('w-64', 'border-r');
             subSidebar.classList.add('w-0');
-
-            // 2. Ẩn nội dung chữ (mờ dần và không nhận sự kiện click)
             subSidebarContent.classList.add('opacity-0', 'pointer-events-none');
-
-            // 3. Xoay ngược mũi tên chỉ sang phải (>)
             toggleArrow.classList.add('rotate-180');
         } else {
-            // 1. Mở lại sidebar về w-64 và bật lại border-r
             subSidebar.classList.remove('w-0');
             subSidebar.classList.add('w-64', 'border-r');
-
-            // 2. Hiện lại khối nội dung
             subSidebarContent.classList.remove('opacity-0', 'pointer-events-none');
-
-            // 3. Xoay mũi tên về lại hướng cũ (<)
             toggleArrow.classList.remove('rotate-180');
         }
     });
 }
 
+// ================= SLIDER MẪU KHÁM PHÁ (TEMPLATE SLIDER) =================
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.getElementById('templateSlider');
     const prevBtn = document.getElementById('prevSlideBtn');
@@ -95,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrollLeft = slider.scrollLeft;
         const maxScroll = slider.scrollWidth - slider.clientWidth;
 
-        // Trạng thái nút trái (<)
         if (scrollLeft <= 10) {
             prevBtn.classList.add('hidden');
             prevBtn.classList.remove('flex');
@@ -104,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
             prevBtn.classList.add('flex');
         }
 
-        // Trạng thái nút phải (>)
         if (scrollLeft >= maxScroll - 10) {
             nextBtn.classList.add('hidden');
             nextBtn.classList.remove('flex');
@@ -114,19 +100,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    nextBtn.addEventListener('click', () => {
-        slider.scrollBy({ left: 320, behavior: 'smooth' });
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: 320, behavior: 'smooth' });
+        });
+    }
 
-    prevBtn.addEventListener('click', () => {
-        slider.scrollBy({ left: -320, behavior: 'smooth' });
-    });
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: -320, behavior: 'smooth' });
+        });
+    }
 
-    slider.addEventListener('scroll', updateSliderButtons);
-    window.addEventListener('resize', updateSliderButtons);
-    updateSliderButtons();
+    if (slider) {
+        slider.addEventListener('scroll', updateSliderButtons);
+        window.addEventListener('resize', updateSliderButtons);
+        updateSliderButtons();
+    }
 });
 
+// ================= CHUYỂN TAB CƠ BẢN (TAB-BTN) =================
 document.addEventListener('DOMContentLoaded', () => {
     const tabBtns = document.querySelectorAll('.tab-btn');
     tabBtns.forEach(btn => {
@@ -141,60 +134,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// ================= TRANG NHIỆM VỤ (ACCORDION & SUB-ITEMS) =================
 document.addEventListener('DOMContentLoaded', () => {
-
-    // 1. TỰ ĐỘNG ĐÓNG / MỞ TẤT CẢ CÁC KHỐI ACCORDION CHA
+    // 1. Tự động đóng/mở khối accordion cha
     const accordionCards = document.querySelectorAll('.accordion-card');
-
     accordionCards.forEach(card => {
         const header = card.querySelector('.accordion-header');
         const body = card.querySelector('.accordion-body');
         const arrow = card.querySelector('.accordion-arrow');
 
-        header.addEventListener('click', () => {
-            const isHidden = body.classList.toggle('hidden');
-            if (isHidden) {
-                arrow.classList.remove('rotate-180');
-            } else {
-                arrow.classList.add('rotate-180');
-            }
-        });
+        if (header && body) {
+            header.addEventListener('click', () => {
+                const isHidden = body.classList.toggle('hidden');
+                if (arrow) {
+                    if (isHidden) {
+                        arrow.classList.remove('rotate-180');
+                    } else {
+                        arrow.classList.add('rotate-180');
+                    }
+                }
+            });
+        }
     });
 
-    // 2. TỰ ĐỘNG CHUYỂN ĐỔI GIỮA CÁC NHIỆM VỤ CON (SUB-TASKS) NẰM TRONG CÁC KHỐI
+    // 2. Chuyển đổi giữa các sub-items
     const subItems = document.querySelectorAll('.sub-item');
-
     subItems.forEach(item => {
         const collapsed = item.querySelector('.sub-collapsed');
         const expanded = item.querySelector('.sub-expanded');
 
         if (collapsed && expanded) {
             collapsed.addEventListener('click', () => {
-                // Tìm toàn bộ anh em sub-item trong cùng 1 khối accordion cha
                 const parentCard = item.closest('.accordion-card');
-                const siblingSubItems = parentCard.querySelectorAll('.sub-item');
-
-                siblingSubItems.forEach(sib => {
-                    sib.querySelector('.sub-collapsed')?.classList.remove('hidden');
-                    sib.querySelector('.sub-expanded')?.classList.add('hidden');
-                });
-
-                // Mở sub-task vừa được bấm
+                if (parentCard) {
+                    const siblingSubItems = parentCard.querySelectorAll('.sub-item');
+                    siblingSubItems.forEach(sib => {
+                        sib.querySelector('.sub-collapsed')?.classList.remove('hidden');
+                        sib.querySelector('.sub-expanded')?.classList.add('hidden');
+                    });
+                }
                 collapsed.classList.add('hidden');
                 expanded.classList.remove('hidden');
             });
         }
     });
 
-    // 3. ĐIỀU KHIỂN ĐỒNG BỘ THANH NAVBAR VỚI CÁC KHỐI THEO DATA-TARGET
+    // 3. Đồng bộ thanh navbar theo data-target
     const navTabs = document.querySelectorAll('.nav-tab');
-
     navTabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const targetId = tab.getAttribute('data-target');
             const targetElement = document.getElementById(targetId);
 
-            // Đổi màu gạch chân xanh tab đang chọn
             navTabs.forEach(t => {
                 t.classList.remove('text-[#1a73e8]', 'border-[#1a73e8]', 'font-semibold');
                 t.classList.add('text-zinc-600', 'border-transparent');
@@ -202,10 +193,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tab.classList.add('text-[#1a73e8]', 'border-[#1a73e8]', 'font-semibold');
             tab.classList.remove('text-zinc-600', 'border-transparent');
 
-            // Cuộn mượt đến khối mục tiêu và tự động mở nội dung
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
                 const body = targetElement.querySelector('.accordion-body');
                 const arrow = targetElement.querySelector('.accordion-arrow');
 
@@ -216,18 +205,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
 });
 
+// ================= CÂY MENU SIDEBAR (TREEVIEW) =================
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. XỬ LÝ ĐÓNG / MỞ TẤT CẢ CÁC CÂY THƯ MỤC TRONG MENU (TREEVIEW)
     const toggles = document.querySelectorAll('.tree-toggle');
 
     toggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
             e.stopPropagation();
-
-            // Tìm phần tử nội dung liền kề ngay sau nút
             const content = toggle.nextElementSibling;
             const arrow = toggle.querySelector('.tree-arrow');
 
@@ -235,41 +221,60 @@ document.addEventListener('DOMContentLoaded', () => {
                 const isHidden = content.classList.toggle('hidden');
 
                 if (arrow) {
-                    // Nếu là mũi tên tam giác quay ngang ▶ (M8 5v14l11-7z)
                     if (arrow.innerHTML.includes('M8 5v14l11-7z')) {
                         arrow.classList.toggle('rotate-90', !isHidden);
                     } else {
-                        // Nếu là mũi tên tam giác quay xuống ▼ hoặc chevron ^
                         arrow.classList.toggle('-rotate-90', isHidden);
                     }
                 }
             }
         });
     });
+});
 
-    // 2. XỬ LÝ NÚT THU GỌN TOÀN BỘ SIDEBAR BÊN TRÁI
-    const toggleBtn = document.getElementById('toggleSidebarBtn');
-    const sidebar = document.getElementById('subSidebar');
-    const sidebarContent = document.getElementById('subSidebarContent');
-    const toggleArrow = document.getElementById('toggleArrowIcon');
+// ================= THANH CUỘN CÁC TAB CHỈ SỐ (CARD 1) =================
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('tabsContainer');
+    const btnLeft = document.getElementById('scrollTabsLeft');
+    const btnRight = document.getElementById('scrollTabsRight');
 
-    if (toggleBtn && sidebar && sidebarContent) {
-        let isCollapsed = false;
+    if (!container || !btnLeft || !btnRight) return;
 
-        toggleBtn.addEventListener('click', () => {
-            isCollapsed = !isCollapsed;
+    const scrollStep = 220;
 
-            if (isCollapsed) {
-                sidebar.classList.remove('w-64');
-                sidebar.classList.add('w-0', 'border-r-0');
-                sidebarContent.classList.add('opacity-0', 'pointer-events-none');
-                if (toggleArrow) toggleArrow.classList.add('rotate-180');
-            } else {
-                sidebar.classList.add('w-64');
-                sidebar.classList.remove('w-0', 'border-r-0');
-                sidebarContent.classList.remove('opacity-0', 'pointer-events-none');
-                if (toggleArrow) toggleArrow.classList.remove('rotate-180');
-            }
-        });
+    function updateScrollButtons() {
+        const maxScrollLeft = container.scrollWidth - container.clientWidth;
+
+        if (container.scrollLeft <= 5) {
+            btnLeft.classList.add('text-zinc-300');
+            btnLeft.classList.remove('text-zinc-600');
+            btnLeft.disabled = true;
+        } else {
+            btnLeft.classList.remove('text-zinc-300');
+            btnLeft.classList.add('text-zinc-600');
+            btnLeft.disabled = false;
+        }
+
+        if (container.scrollLeft >= maxScrollLeft - 5) {
+            btnRight.classList.add('text-zinc-300');
+            btnRight.classList.remove('text-zinc-600');
+            btnRight.disabled = true;
+        } else {
+            btnRight.classList.remove('text-zinc-300');
+            btnRight.classList.add('text-zinc-600');
+            btnRight.disabled = false;
+        }
     }
+
+    btnLeft.addEventListener('click', () => {
+        container.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+    });
+
+    btnRight.addEventListener('click', () => {
+        container.scrollBy({ left: scrollStep, behavior: 'smooth' });
+    });
+
+    container.addEventListener('scroll', updateScrollButtons);
+    window.addEventListener('resize', updateScrollButtons);
+    updateScrollButtons();
 });
