@@ -14,13 +14,26 @@ function setupDropdown(triggerBtnId, popupId) {
     triggerBtn.addEventListener('click', (e) => {
         e.stopPropagation();
 
+        // 1. Đóng các popup khác đang mở
         document.querySelectorAll('.app-popup').forEach((el) => {
-            if (el !== popup) {
-                el.classList.add('hidden');
-            }
+            if (el !== popup) el.classList.add('hidden');
         });
 
-        popup.classList.toggle('hidden');
+        // 2. Bật / Tắt popup hiện tại
+        const isClosed = popup.classList.contains('hidden');
+
+        if (isClosed) {
+            popup.classList.remove('hidden');
+
+            // 3. Nếu có class fixed-popup thì tính tọa độ neo ngay dưới nút
+            if (popup.classList.contains('fixed-popup')) {
+                const rect = triggerBtn.getBoundingClientRect();
+                popup.style.top = `${rect.bottom + 6}px`;
+                popup.style.left = `${rect.left}px`;
+            }
+        } else {
+            popup.classList.add('hidden');
+        }
     });
 
     popup.addEventListener('click', (e) => {
